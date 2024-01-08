@@ -1,0 +1,247 @@
+<html>
+
+
+<head>
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="/style.css">
+
+</head>
+    
+<title>Command Generator Bedrock: colin.party</title>
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon16.png">
+
+<script>
+
+    function handleCommandChange() {
+        // hide all the commands
+        document.querySelectorAll('.command').forEach(function(element) {
+            element.style.display = 'none'
+        })
+
+        //--- figure out which one to show ---
+
+        // get the selected option (todo: put it in a variable)
+        var optionSelected = document.querySelector('#commandPicker option:checked')
+      
+        // look at the attribute named "data-target"
+        var targetId = optionSelected.attributes['data-target'].value
+
+        // now we have the id of the paragraph we want to show!
+
+        //show it
+        document.getElementById(targetId).style.display = ''
+
+    }
+
+    var itemToIdentifierData = {}
+
+    function convertItemToIdentifierData(text) {
+
+        //set identifierData to object in var
+        var identifierData = itemToIdentifierData[text]
+
+        //if text is an empty string (field is empty) set to air 0
+        identifierData = text == '' ? {identifier: 'air' , data: 0} : identifierData
+
+        //if identifierData is null (no identifierData in list exists), set to text
+        if (identifierData == null) {
+
+            var split_text = text.split(' ',2)
+
+            if (split_text.length == 1) {
+
+                split_text.push(0)
+
+            } else {
+
+                split_text[1] = parseInt(split_text[1])
+                split_text[1] = isNaN(split_text[1]) ? 0 : split_text[1]
+
+            }
+
+            identifierData = {identifier: split_text[0] , data: split_text[1]}
+        }
+
+        return(identifierData)
+
+    }
+
+    function textToTarget(text) {
+
+        var textToTarget = {
+            "Me (@s)" : "@s",
+            "Everyone (@a)" : "@a",
+            "Closest Player (@p)" : "@p",
+            "Random player (@r)" : "@r",
+        }
+
+        //set target to item in var above
+        var target = textToTarget[text]
+
+        //if target is null (no item in list exists), set to text
+        target = target ?? text
+
+        //if target is an empty string (field is empty) set to '@s'
+        target = target == '' ? '@s' : target
+
+        //if target contains spaces, encase in double-quotes
+        if (target.includes(" ")) {
+        target = '"'+target+'"'
+        }
+
+        return(target)
+
+    }
+
+    function generateGiveCommand() {
+
+        var target = document.getElementById('giveCommandTarget').value
+        target = textToTarget(target)
+
+        var count = document.getElementById('giveCommandCount').value
+        count = count == '' ? '1' : count
+
+        var identifierData = document.getElementById('giveCommandItem').value
+        identifierData = convertItemToIdentifierData(identifierData)
+
+        var identifier = identifierData['identifier']
+        var data = identifierData['data']
+
+        var command = `/give ${target} ${identifierData['identifier']} ${count}`
+
+        if (data != 0) {
+            var command = `${command} ${data}`
+        }
+
+        document.querySelector('#giveCommandGenerator .output').innerText = command
+
+
+    }
+
+    function fixCsvQuotes(str) {
+
+        if (str.charAt(0) == '"') {
+
+            return(str.slice(1, str.length-1).replaceAll('""','"'))
+
+        } else {
+
+            return(str)
+
+        }
+
+    }
+
+    function loaded() {
+        fetch('/commandgenerator/block_and_item_data.csv')
+            .then((response) => response.text())
+            .then((data) => {
+
+                var rows = data.split('\n')
+                // console.log(rows)
+
+                var item_options = []
+
+                for (let index = 1; index < rows.length; index++) {
+                    const row = rows[index].replace('\r', '').split(',');
+
+                    var identifier = fixCsvQuotes(row[0])
+
+                    //give
+                    if (row[4] !== '') {
+                        var give_name = fixCsvQuotes(row[4])
+                        var give_data = fixCsvQuotes(row[3])
+
+                        item_options.push(`<option>${give_name}</option>`)
+
+                        itemToIdentifierData[give_name] = {identifier: identifier, data: give_data}
+                    }
+
+                    
+                }
+
+                document.getElementById('items').innerHTML = item_options.join('')
+
+            });
+    }
+
+</script>
+
+
+</head>
+
+
+<body onload="loaded()">
+ 
+<div class=banner>
+
+    <img src="/banner.svg" alt="" height="100%" width="100%" draggable="false"/>
+
+</div>
+
+<div class="menu">
+
+    <h1 class="center"> Minecraft Bedrock Command Generator</h1>
+
+</div>
+
+<div class="menu">
+
+    <div class="center">
+        <select onchange="handleCommandChange()" id="commandPicker">
+            <option value="give" data-target="giveCommandGenerator">Give</option>
+            <option value="tp" data-target="tpCommandGenerator">Teleport</option>
+        </select>
+    </div>
+
+    <!-- /give -->
+    <div id="giveCommandGenerator" class="command">
+        <p>
+            Give
+            <input onchange="generateGiveCommand()" onkeyup="generateGiveCommand()" id="giveCommandTarget" style="width: 12em;" placeholder="Username/Selector" list="player selector" autoComplete="on" />
+            <input onchange="generateGiveCommand()" onkeyup="generateGiveCommand()" id="giveCommandCount" style="width: 5em;" placeholder="Amount" type="number" min="1" value="1"/>
+            <input onchange="generateGiveCommand()" onkeyup="generateGiveCommand()" id="giveCommandItem" style="width: 15em;" placeholder="Item" list="items" autoComplete="on" />
+        </p>
+
+        <p class="output">
+
+        </p>
+    </div>
+
+    <!-- /tp -->
+    
+    <div id="tpCommandGenerator" class="command" style="display: none;">
+        <p>
+            todo: tp command
+        </p>
+    </div>
+
+    <datalist id="player selector">
+        <option>Me (@s)</option>
+        <option>Everyone (@a)</option>
+        <option>Closest Player (@p)</option>
+        <option>Random player (@r)</option>
+    </datalist>
+
+    <datalist id="entity selector">
+        <option>Me (@s)</option>
+        <option>Everyone (@a)</option>
+        <option>Closest Player (@p)</option>
+        <option>Random player (@r)</option>
+        <option>Everything (@e)</option>
+    </datalist>
+
+    <datalist id="items">
+    </datalist>
+
+
+</div>
+
+</body>
+
+</html>

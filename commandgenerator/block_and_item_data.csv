@@ -1,0 +1,669 @@
+Identifier,Setblock Data,Setblock Name,Give Data,Give Name
+air,0,Air,0,Air
+stone,0,Stone,0,Stone
+stone,1,Granite,1,Granite
+stone,2,Polished Granite,2,Polished Granite
+stone,3,Diorite,3,Diorite
+stone,4,Polished Diorite,4,Polished Diorite
+stone,5,Andesite,5,Andesite
+stone,6,Polished Andesite,6,Polished Andesite
+grass,0,Grass Block,0,Grass Block
+dirt,0,Dirt,0,Dirt
+cobblestone,0,Cobblestone,0,Cobblestone
+planks,0,Oak Planks,0,Oak Planks
+planks,1,Spruce Planks,1,Spruce Planks
+planks,2,Birch Planks,2,Birch Planks
+planks,3,Jungle Planks,3,Jungle Planks
+planks,4,Acacia Planks,4,Acacia Planks
+planks,5,Dark Oak Planks,5,Dark Oak Planks
+sapling,0,Oak Sapling,0,Oak Sapling
+sapling,1,Spruce Sapling,1,Spruce Sapling
+sapling,2,Birch Sapling,2,Birch Sapling
+sapling,3,Jungle Sapling,3,Jungle Sapling
+sapling,4,Acacia Sapling,4,Acacia Sapling
+sapling,5,Dark Oak Sapling,5,Dark Oak Sapling
+bedrock,0,Bedrock,0,Bedrock
+flowing_water,0,Flowing Water,0,Flowing Water
+water,0,Water,0,Water
+flowing_lava,0,Flowing Lava,0,Flowing Lava
+lava,0,Lava,0,Lava
+sand,0,Sand,0,Sand
+sand,1,Red Sand,1,Red Sand
+gravel,0,Gravel,0,Gravel
+gold_ore,0,Gold Ore,0,Gold Ore
+iron_ore,0,Iron Ore,0,Iron Ore
+coal_ore,0,Coal Ore,0,Coal Ore
+log,0,Oak Log (Facing up),0,Oak Log
+log,1,Spruce Log (Facing up),1,Spruce Log
+log,2,Birch Log (Facing up),2,Birch Log
+log,3,Jungle Log (Facing up),3,Jungle Log
+log,4,Oak Log (Facing East-West),,
+log,5,"Spruce Log (Facing East-West)""",,
+log,6,Birch Log (Facing East-West),,
+log,7,Jungle Log (Facing East-West),,
+log,8,Oak Log (Facing North-South),,
+log,9,Spruce Log (Facing North-South),,
+log,10,Birch Log (Facing North-South),,
+log,11,Jungle Log (Facing North-South),,
+leaves,0,Oak Leaves,0,Oak Leaves
+leaves,1,Spruce Leaves,1,Spruce Leaves
+leaves,2,Birch Leaves,2,Birch Leaves
+leaves,3,Jungle Leaves,3,Jungle Leaves
+sponge,0,Sponge,0,Sponge
+sponge,1,Wet Sponge,1,Wet Sponge
+glass,0,Glass,0,Glass
+lapis_ore,0,Lapis Lazuli Ore,0,Lapis Lazuli Ore
+lapis_block,0,Lapis Lazuli Block,0,Lapis Lazuli Block
+dispenser,0,Dispenser (Facing Down),0,Dispenser
+dispenser,1,Dispenser (Facing Up),,
+dispenser,2,Dispenser (Facing North),,
+dispenser,3,Dispenser (Facing South),,
+dispenser,4,Dispenser (Facing West),,
+dispenser,5,Dispenser (Facing East),,
+sandstone,0,Sandstone,0,Sandstone
+sandstone,1,Chiseled Sandstone,1,Chiseled Sandstone
+sandstone,2,Cut Sandstone,2,Cut Sandstone
+sandstone,3,Smooth Sandstone,3,Smooth Sandstone
+noteblock,0,Note Block,0,Note Block
+bed,0,Bed (Facing South),0,Bed (Facing South)
+bed,1,Bed (Facing West),,
+bed,2,Bed  (Facing North),,
+bed,3,Bed (Facing East),,
+golden_rail,0,Powered Rail,0,Powered Rail
+detector_rail,0,Detector Rail,0,Detector Rail
+sticky_piston,0,Sticky Piston,0,Sticky Piston
+web,0,Cobweb,0,Cobweb
+tallgrass,0,Grass (plant),0,Grass (plant)
+deadbush,0,Dead Bush,0,Dead Bush
+piston,0,Piston,0,Piston
+pistonarmcollision,0,Piston Arm Collision,0,Piston Arm Collision
+wool,0,Wool,0,Wool
+yellow_flower,0,Yellow Flower,0,Yellow Flower
+red_flower,0,Red Flower,0,Red Flower
+brown_mushroom,0,Brown Mushroom,0,Brown Mushroom
+red_mushroom,0,Red Mushroom,0,Red Mushroom
+gold_block,0,Block of Gold,0,Block of Gold
+iron_block,0,Block of Iron,0,Block of Iron
+double_stone_slab,0,Double Smooth Stone Slab,,
+double_stone_slab,1,Double Sandstone Slab,,
+double_stone_slab,2,Double Petrified Oak Slab,,
+double_stone_slab,3,Double Cobblestone Slab,,
+double_stone_slab,4,Double Bricks Slab,,
+double_stone_slab,5,Double Stone Bricks Slab,,
+double_stone_slab,6,Double Quartz Slab,,
+double_stone_slab,7,Double Nether Brick Slab,,
+stone_slab,0,Smooth Stone Slab,0,Smooth Stone Slab
+stone_slab,1,Sandstone Slab,1,Sandstone Slab
+stone_slab,2,Petrified Oak Slab,2,Petrified Oak Slab
+stone_slab,3,Cobblestone Slab,3,Cobblestone Slab
+stone_slab,4,Bricks Slab,4,Bricks Slab
+stone_slab,5,Stone Bricks Slab,5,Stone Bricks Slab
+stone_slab,6,Quartz Slab,6,Quartz Slab
+stone_slab,7,Nether Brick Slab,7,Nether Brick Slab
+stone_slab,8,Smooth Stone Slab (top),,
+stone_slab,9,Sandstone Slab (top),,
+stone_slab,10,Petrified Oak Slab (top),,
+stone_slab,11,Cobblestone Slab (top),,
+stone_slab,12,Bricks Slab (top),,
+stone_slab,13,Stone Bricks Slab (top),,
+stone_slab,14,Quartz Slab (top),,
+stone_slab,15,Nether Brick Slab (top),,
+brick_block,0,Brick Block,0,Brick Block
+tnt,0,TNT,0,TNT
+bookshelf,0,Bookshelf,0,Bookshelf
+mossy_cobblestone,0,Mossy Cobblestone,0,Mossy Cobblestone
+obsidian,0,Obsidian,0,Obsidian
+torch,0,Torch,0,Torch
+fire,0,Fire,0,Fire
+mob_spawner,0,Monster Spawner,0,Monster Spawner
+oak_stairs,0,Oak Wood Stairs,0,Oak Wood Stairs
+chest,0,Chest,0,Chest
+redstone_wire,0,Redstone Dust,0,Redstone Dust
+diamond_ore,0,Diamond Ore,0,Diamond Ore
+diamond_block,0,Block of Diamond,0,Block of Diamond
+crafting_table,0,Crafting Table,0,Crafting Table
+wheat,7,Wheat,7,Wheat
+farmland,0,Farmland,0,Farmland
+furnace,0,Furnace,0,Furnace
+lit_furnace,0,Lit Furnace,0,Lit Furnace
+standing_sign,0,Oak Sign,0,Oak Sign
+wooden_door,0,Oak Door,0,Oak Door
+ladder,0,Ladder,0,Ladder
+rail,0,Rail,0,Rail
+stone_stairs,0,Cobblestone Stairs,0,Cobblestone Stairs
+wall_sign,0,Oak Wall Sign,0,Oak Wall Sign
+lever,0,Lever,0,Lever
+stone_pressure_plate,0,Stone Pressure Plate,0,Stone Pressure Plate
+iron_door,0,Iron Door,0,Iron Door
+wooden_pressure_plate,0,Oak Pressure Plate,0,Oak Pressure Plate
+redstone_ore,0,Redstone Ore,0,Redstone Ore
+lit_redstone_ore,0,Lit Redstone Ore,0,Lit Redstone Ore
+unlit_redstone_torch,0,Unlit Redstone Torch,0,Unlit Redstone Torch
+redstone_torch,0,Redstone Torch,0,Redstone Torch
+stone_button,0,Stone Button,0,Stone Button
+snow_layer,0,Top Snow,0,Top Snow
+ice,0,Ice,0,Ice
+snow,0,Snow Block,0,Snow Block
+cactus,0,Cactus,0,Cactus
+clay,0,Clay Block,0,Clay Block
+reeds,0,Sugar cane,0,Sugar cane
+jukebox,0,Jukebox,0,Jukebox
+fence,0,Oak Fence,0,Oak Fence
+fence,1,Spruce Fence,1,Spruce Fence
+fence,2,Birch Fence,2,Birch Fence
+fence,3,Jungle Fence,3,Jungle Fence
+fence,4,Acacia Fence,4,Acacia Fence
+fence,5,Dark Oak Fence,5,Dark Oak Fence
+pumpkin,0,Pumpkin,0,Pumpkin
+netherrack,0,Netherrack,0,Netherrack
+soul_sand,0,Soul Sand,0,Soul Sand
+glowstone,0,Glowstone,0,Glowstone
+portal,0,Nether Portal,0,Nether Portal
+lit_pumpkin,0,Jack o'Lantern,0,Jack o'Lantern
+cake,0,Cake,0,Cake
+unpowered_repeater,0,Unpowered Redstone Repeater,0,Unpowered Redstone Repeater
+powered_repeater,0,Powered Redstone Repeater,0,Powered Redstone Repeater
+invisibleBedrock,0,Invisible Bedrock,0,Invisible Bedrock
+"trapdoor[""upside_down_bit"":true]",0,Oak Trapdoor,0,Oak Trapdoor
+monster_egg,0,Infested Stone,0,Infested Stone
+monster_egg,1,Infested Cobblestone,1,Infested Cobblestone
+monster_egg,2,Infested Stone Brick,2,Infested Stone Brick
+monster_egg,3,Infested Mossy Stone Brick,3,Infested Mossy Stone Brick
+monster_egg,4,Infested Cracked Stone Brick,4,Infested Cracked Stone Brick
+monster_egg,5,Infested Chiseled Stone Brick,5,Infested Chiseled Stone Brick
+stonebrick,0,Stone Bricks,0,Stone Bricks
+brown_mushroom_block,0,Brown Mushroom Block,0,Brown Mushroom Block
+red_mushroom_block,0,Red Mushroom Block,0,Red Mushroom Block
+iron_bars,0,Iron Bars,0,Iron Bars
+glass_pane,0,Glass Pane,0,Glass Pane
+melon_block,0,Melon,0,Melon
+pumpkin_stem,0,Pumpkin Stem,0,Pumpkin Stem
+melon_stem,0,Melon Stem,0,Melon Stem
+vine,0,Vines,0,Vines
+fence_gate,0,Oak Fence Gate,0,Oak Fence Gate
+brick_stairs,0,Brick Stairs,0,Brick Stairs
+stone_brick_stairs,0,Stone Brick Stairs,0,Stone Brick Stairs
+mycelium,0,Mycelium,0,Mycelium
+waterlily,0,Lily Pad,0,Lily Pad
+nether_brick,0,Nether Brick Block,0,Nether Brick Block
+nether_brick_fence,0,Nether Brick Fence,0,Nether Brick Fence
+nether_brick_stairs,0,Nether Brick Stairs,0,Nether Brick Stairs
+nether_wart,0,Nether Wart,0,Nether Wart
+enchanting_table,0,Enchantment Table,0,Enchantment Table
+brewing_stand,0,Brewing Stand,0,Brewing Stand
+cauldron,0,Cauldron,0,Cauldron
+end_portal,0,End Portal,0,End Portal
+end_portal_frame,0,End Portal Frame,0,End Portal Frame
+end_stone,0,End Stone,0,End Stone
+dragon_egg,0,Dragon Egg,0,Dragon Egg
+redstone_lamp,0,Redstone Lamp,0,Redstone Lamp
+lit_redstone_lamp,0,Lit Redstone Lamp,0,Lit Redstone Lamp
+dropper,0,Dropper (Facing Down),0,Dropper
+dropper,1,Dropper (Facing Up),,
+dropper,2,Dropper (Facing North),,
+dropper,3,Dropper (Facing South),,
+dropper,4,Dropper (Facing West),,
+dropper,5,Dropper (Facing East),,
+activator_rail,0,Activator Rail,0,Activator Rail
+cocoa,8,Cocoa,8,Cocoa
+sandstone_stairs,0,Sandstone Stairs,0,Sandstone Stairs
+emerald_ore,0,Emerald Ore,0,Emerald Ore
+ender_chest,0,Ender Chest,0,Ender Chest
+tripwire_hook,0,Tripwire Hook,0,Tripwire Hook
+tripwire,0,Tripwire,0,Tripwire
+emerald_block,0,Block of Emerald,0,Block of Emerald
+spruce_stairs,0,Spruce Wood Stairs,0,Spruce Wood Stairs
+birch_stairs,0,Birch Wood Stairs,0,Birch Wood Stairs
+jungle_stairs,0,Jungle Wood Stairs,0,Jungle Wood Stairs
+command_block,0,Impulse Command Block,0,Impulse Command Block
+beacon,0,Beacon,0,Beacon
+cobblestone_wall,0,cobblestone_wall,0,cobblestone_wall
+flower_pot,0,Flower Pot,0,Flower Pot
+carrots,7,Carrots,7,Carrots
+potatoes,7,Potatoes,7,Potatoes
+wooden_button,0,Oak Button,0,Oak Button
+skull,0,Skull,0,Skull
+anvil,0,Anvil,0,Anvil
+trapped_chest,0,Trapped Chest,0,Trapped Chest
+light_weighted_pressure_plate,0,Light Weighted Pressure Plate,0,Light Weighted Pressure Plate
+heavy_weighted_pressure_plate,0,Heavy Weighted Pressure Plate,0,Heavy Weighted Pressure Plate
+unpowered_comparator,0,Unpowered Redstone Comparator,0,Unpowered Redstone Comparator
+powered_comparator,0,Powered Redstone Comparator,0,Powered Redstone Comparator
+daylight_detector,0,Daylight Sensor,0,Daylight Sensor
+redstone_block,0,Block of Redstone,0,Block of Redstone
+quartz_ore,0,Nether Quartz Ore,0,Nether Quartz Ore
+hopper,0,Hopper,0,Hopper
+quartz_block,0,quartz_block,0,quartz_block
+quartz_stairs,0,Quartz Stairs,0,Quartz Stairs
+double_wooden_slab,0,Double Wood Slab,0,Double Wood Slab
+wooden_slab,0,Wooden Slab,0,Wooden Slab
+stained_hardened_clay,0,Terracotta,0,Terracotta
+stained_glass_pane,0,Stained Glass Pane,0,Stained Glass Pane
+leaves2,0,leaves2,0,leaves2
+log2,0,log2,0,log2
+acacia_stairs,0,Acacia Wood Stairs,0,Acacia Wood Stairs
+dark_oak_stairs,0,Dark Oak Wood Stairs,0,Dark Oak Wood Stairs
+slime,0,Slime Block,0,Slime Block
+iron_trapdoor,0,Iron Trapdoor,0,Iron Trapdoor
+prismarine,0,prismarine,0,prismarine
+sealantern,0,Sea Lantern,0,Sea Lantern
+hay_block,0,Hay Bale,0,Hay Bale
+carpet,0,Carpet,0,Carpet
+hardened_clay,0,Terracotta,0,Terracotta
+coal_block,0,Block of Coal,0,Block of Coal
+packed_ice,0,Packed Ice,0,Packed Ice
+double_plant,0,Double Plant,0,Double Plant
+standing_banner,0,Banner,0,Banner
+wall_banner,0,Wall Banner,0,Wall Banner
+daylight_detector_inverted,0,Inverted Daylight Detector,0,Inverted Daylight Detector
+red_sandstone,0,red_sandstone,0,red_sandstone
+red_sandstone_stairs,0,Red Sandstone Stairs,0,Red Sandstone Stairs
+double_stone_slab2,0,double_stone_slab2,0,double_stone_slab2
+stone_slab2,0,stone_slab2,0,stone_slab2
+spruce_fence_gate,0,Spruce Fence Gate,0,Spruce Fence Gate
+birch_fence_gate,0,Birch Fence Gate,0,Birch Fence Gate
+jungle_fence_gate,0,Jungle Fence Gate,0,Jungle Fence Gate
+dark_oak_fence_gate,0,Dark Oak Fence Gate,0,Dark Oak Fence Gate
+acacia_fence_gate,0,Acacia Fence Gate,0,Acacia Fence Gate
+repeating_command_block,0,Repeating Command Block,0,Repeating Command Block
+chain_command_block,0,Chain Command Block,0,Chain Command Block
+hard_glass_pane,0,Hardened Glass Pane,0,Hardened Glass Pane
+hard_stained_glass_pane,0,Hardened Stained Glass Pane,0,Hardened Stained Glass Pane
+chemical_heat,0,Heat Block,0,Heat Block
+spruce_door,0,Spruce Door,0,Spruce Door
+birch_door,0,Birch Door,0,Birch Door
+jungle_door,0,Jungle Door,0,Jungle Door
+acacia_door,0,Acacia Door,0,Acacia Door
+dark_oak_door,0,Dark Oak Door,0,Dark Oak Door
+grass_path,0,Dirt Path,0,Dirt Path
+frame,0,Item Frame,0,Item Frame
+chorus_flower,0,Chorus Flower,0,Chorus Flower
+purpur_block,0,purpur_block,0,purpur_block
+colored_torch_rg,0,colored_torch_rg,0,colored_torch_rg
+purpur_stairs,0,Purpur Stairs,0,Purpur Stairs
+colored_torch_bp,0,colored_torch_bp,0,colored_torch_bp
+undyed_shulker_box,0,Shulker Box,0,Shulker Box
+end_bricks,0,End Stone Bricks,0,End Stone Bricks
+frosted_ice,0,Frosted Ice,0,Frosted Ice
+end_rod,0,End Rod,0,End Rod
+end_gateway,0,End Gateway,0,End Gateway
+allow,0,Allow,0,Allow
+deny,0,Deny,0,Deny
+border_block,0,Border,0,Border
+magma,0,Magma Block,0,Magma Block
+nether_wart_block,0,Nether Wart Block,0,Nether Wart Block
+red_nether_brick,0,Red Nether Brick Block,0,Red Nether Brick Block
+bone_block,0,Bone Block,0,Bone Block
+structure_void,0,Structure Void,0,Structure Void
+shulker_box,0,Dyed Shulker Box,0,Dyed Shulker Box
+purple_glazed_terracotta,0,Purple Glazed Terracotta,0,Purple Glazed Terracotta
+white_glazed_terracotta,0,White Glazed Terracotta,0,White Glazed Terracotta
+orange_glazed_terracotta,0,Orange Glazed Terracotta,0,Orange Glazed Terracotta
+magenta_glazed_terracotta,0,Magenta Glazed Terracotta,0,Magenta Glazed Terracotta
+light_blue_glazed_terracotta,0,Light Blue Glazed Terracotta,0,Light Blue Glazed Terracotta
+yellow_glazed_terracotta,0,Yellow Glazed Terracotta,0,Yellow Glazed Terracotta
+lime_glazed_terracotta,0,Lime Glazed Terracotta,0,Lime Glazed Terracotta
+pink_glazed_terracotta,0,Pink Glazed Terracotta,0,Pink Glazed Terracotta
+gray_glazed_terracotta,0,Gray Glazed Terracotta,0,Gray Glazed Terracotta
+silver_glazed_terracotta,0,Light Gray Glazed Terracotta,0,Light Gray Glazed Terracotta
+cyan_glazed_terracotta,0,Cyan Glazed Terracotta,0,Cyan Glazed Terracotta
+chalkboard,0,Chalkboard,0,Chalkboard
+blue_glazed_terracotta,0,Blue Glazed Terracotta,0,Blue Glazed Terracotta
+brown_glazed_terracotta,0,Brown Glazed Terracotta,0,Brown Glazed Terracotta
+green_glazed_terracotta,0,Green Glazed Terracotta,0,Green Glazed Terracotta
+red_glazed_terracotta,0,Red Glazed Terracotta,0,Red Glazed Terracotta
+black_glazed_terracotta,0,Black Glazed Terracotta,0,Black Glazed Terracotta
+concrete,0,Concrete,0,Concrete
+concrete_powder,0,Concrete Powder,0,Concrete Powder
+chemistry_table,0,Chemistry Table,0,Chemistry Table
+underwater_torch,0,Underwater Torch,0,Underwater Torch
+chorus_plant,0,Chorus Plant,0,Chorus Plant
+stained_glass,0,Stained Glass,0,Stained Glass
+camera,0,Camera,0,Camera
+podzol,0,Podzol,0,Podzol
+beetroot,0,Beetroot,0,Beetroot
+stonecutter,0,Stonecutter,0,Stonecutter
+glowingobsidian,0,Glowing Obsidian,0,Glowing Obsidian
+netherreactor,0,Nether Reactor Core,0,Nether Reactor Core
+info_update,0,Info Update,0,Info Update
+info_update2,0,Info Update 2,0,Info Update 2
+movingBlock,0,Moving Block,0,Moving Block
+observer,0,Observer,0,Observer
+structure_block,0,Structure Block,0,Structure Block
+hard_glass,0,Hardened Glass,0,Hardened Glass
+hard_stained_glass,0,Hardened Stained Glass,0,Hardened Stained Glass
+reserved6,0,Reserved6,0,Reserved6
+prismarine_stairs,0,Prismarine Stairs,0,Prismarine Stairs
+dark_prismarine_stairs,0,Dark Prismarine Stairs,0,Dark Prismarine Stairs
+prismarine_bricks_stairs,0,Prismarine Brick Stairs,0,Prismarine Brick Stairs
+stripped_spruce_log,0,Stripped Spruce Log,0,Stripped Spruce Log
+stripped_birch_log,0,Stripped Birch Log,0,Stripped Birch Log
+stripped_jungle_log,0,Stripped Jungle Log,0,Stripped Jungle Log
+stripped_acacia_log,0,Stripped Acacia Log,0,Stripped Acacia Log
+stripped_dark_oak_log,0,Stripped Dark Oak Log,0,Stripped Dark Oak Log
+stripped_oak_log,0,Stripped Oak Log,0,Stripped Oak Log
+blue_ice,0,Blue Ice,0,Blue Ice
+seagrass,0,Seagrass,0,Seagrass
+coral,0,Coral,0,Coral
+coral_block,0,Coral Block,0,Coral Block
+coral_fan,0,Coral Fan,0,Coral Fan
+coral_fan_dead,0,Dead Coral Fan,0,Dead Coral Fan
+coral_fan_hang,0,coral_fan_hang,0,coral_fan_hang
+coral_fan_hang2,0,coral_fan_hang2,0,coral_fan_hang2
+coral_fan_hang3,0,coral_fan_hang3,0,coral_fan_hang3
+kelp,0,Kelp,0,Kelp
+dried_kelp_block,0,Dried Kelp Block,0,Dried Kelp Block
+acacia_button,0,Acacia Button,0,Acacia Button
+birch_button,0,Birch Button,0,Birch Button
+dark_oak_button,0,Dark Oak Button,0,Dark Oak Button
+jungle_button,0,Jungle Button,0,Jungle Button
+spruce_button,0,Spruce Button,0,Spruce Button
+acacia_trapdoor,0,Acacia Trapdoor,0,Acacia Trapdoor
+birch_trapdoor,0,Birch Trapdoor,0,Birch Trapdoor
+dark_oak_trapdoor,0,Dark Oak Trapdoor,0,Dark Oak Trapdoor
+jungle_trapdoor,0,Jungle Trapdoor,0,Jungle Trapdoor
+spruce_trapdoor,0,Spruce Trapdoor,0,Spruce Trapdoor
+acacia_pressure_plate,0,Acacia Pressure Plate,0,Acacia Pressure Plate
+birch_pressure_plate,0,Birch Pressure Plate,0,Birch Pressure Plate
+dark_oak_pressure_plate,0,Dark Oak Pressure Plate,0,Dark Oak Pressure Plate
+jungle_pressure_plate,0,Jungle Pressure Plate,0,Jungle Pressure Plate
+spruce_pressure_plate,0,Spruce Pressure Plate,0,Spruce Pressure Plate
+carved_pumpkin,0,Carved Pumpkin,0,Carved Pumpkin
+sea_pickle,0,Sea Pickle,0,Sea Pickle
+conduit,0,Conduit,0,Conduit
+,0,(unused),0,(unused)
+turtle_egg,0,Sea Turtle Egg,0,Sea Turtle Egg
+bubble_column,0,Bubble Column,0,Bubble Column
+barrier,0,Barrier,0,Barrier
+stone_slab3,0,stone_slab3,0,stone_slab3
+bamboo,0,Bamboo,0,Bamboo
+bamboo_sapling,0,Bamboo Sapling,0,Bamboo Sapling
+scaffolding,0,Scaffolding,0,Scaffolding
+stone_slab4,0,stone_slab4,0,stone_slab4
+double_stone_slab3,0,double_stone_slab3,0,double_stone_slab3
+double_stone_slab4,0,double_stone_slab4,0,double_stone_slab4
+granite_stairs,0,Granite Stairs,0,Granite Stairs
+diorite_stairs,0,Diorite Stairs,0,Diorite Stairs
+andesite_stairs,0,Andesite Stairs,0,Andesite Stairs
+polished_granite_stairs,0,Polished Granite Stairs,0,Polished Granite Stairs
+polished_diorite_stairs,0,Polished Diorite Stairs,0,Polished Diorite Stairs
+polished_andesite_stairs,0,Polished Andesite Stairs,0,Polished Andesite Stairs
+mossy_stone_brick_stairs,0,Mossy Stone Brick Stairs,0,Mossy Stone Brick Stairs
+smooth_red_sandstone_stairs,0,Smooth Red Sandstone Stairs,0,Smooth Red Sandstone Stairs
+smooth_sandstone_stairs,0,Smooth Sandstone Stairs,0,Smooth Sandstone Stairs
+end_brick_stairs,0,End Stone Brick Stairs,0,End Stone Brick Stairs
+mossy_cobblestone_stairs,0,Mossy Cobblestone Stairs,0,Mossy Cobblestone Stairs
+normal_stone_stairs,0,Stone Stairs,0,Stone Stairs
+spruce_standing_sign,0,Spruce Sign,0,Spruce Sign
+spruce_wall_sign,0,Spruce Wall Sign,0,Spruce Wall Sign
+smooth_stone,0,Smooth Stone,0,Smooth Stone
+red_nether_brick_stairs,0,Red Nether Brick Stairs,0,Red Nether Brick Stairs
+smooth_quartz_stairs,0,Smooth Quartz Stairs,0,Smooth Quartz Stairs
+birch_standing_sign,0,Birch Sign,0,Birch Sign
+birch_wall_sign,0,Birch Wall Sign,0,Birch Wall Sign
+jungle_standing_sign,0,Jungle Sign,0,Jungle Sign
+jungle_wall_sign,0,Jungle Wall Sign,0,Jungle Wall Sign
+acacia_standing_sign,0,Acacia Sign,0,Acacia Sign
+acacia_wall_sign,0,Acacia Wall Sign,0,Acacia Wall Sign
+darkoak_standing_sign,0,Dark Oak Sign,0,Dark Oak Sign
+darkoak_wall_sign,0,Dark Oak Wall Sign,0,Dark Oak Wall Sign
+lectern,0,Lectern,0,Lectern
+grindstone,0,Grindstone,0,Grindstone
+blast_furnace,0,Blast Furnace,0,Blast Furnace
+stonecutter_block,0,Stonecutter,0,Stonecutter
+smoker,0,Smoker,0,Smoker
+lit_smoker,0,Lit Smoker,0,Lit Smoker
+cartography_table,0,Cartography Table,0,Cartography Table
+fletching_table,0,Fletching Table,0,Fletching Table
+smithing_table,0,Smithing Table,0,Smithing Table
+barrel,0,Barrel,0,Barrel
+loom,0,Loom,0,Loom
+bell,0,Bell,0,Bell
+sweet_berry_bush,0,Sweet Berry Bush,0,Sweet Berry Bush
+lantern,0,Lantern,0,Lantern
+campfire,0,Campfire,0,Campfire
+lava_cauldron,0,Lava Cauldron,0,Lava Cauldron
+jigsaw,0,Jigsaw Block,0,Jigsaw Block
+wood,0,Wood,0,Wood
+composter,0,Composter,0,Composter
+lit_blast_furnace,0,Lit Blast Furnace,0,Lit Blast Furnace
+light_block,0,Light Block,0,Light Block
+wither_rose,0,Wither Rose,0,Wither Rose
+stickypistonarmcollision,0,Sticky Piston Arm Collision,0,Sticky Piston Arm Collision
+bee_nest,0,Bee Nest,0,Bee Nest
+beehive,0,Beehive,0,Beehive
+honey_block,0,Honey Block,0,Honey Block
+honeycomb_block,0,Honeycomb Block,0,Honeycomb Block
+lodestone,0,Lodestone,0,Lodestone
+crimson_roots,0,Crimson Roots,0,Crimson Roots
+warped_roots,0,Warped Roots,0,Warped Roots
+crimson_stem,0,Crimson Stem,0,Crimson Stem
+warped_stem,0,Warped Stem,0,Warped Stem
+warped_wart_block,0,Warped Wart Block,0,Warped Wart Block
+crimson_fungus,0,Crimson Fungus,0,Crimson Fungus
+warped_fungus,0,Warped Fungus,0,Warped Fungus
+shroomlight,0,Shroomlight,0,Shroomlight
+weeping_vines,0,Weeping Vines,0,Weeping Vines
+crimson_nylium,0,Crimson Nylium,0,Crimson Nylium
+warped_nylium,0,Warped Nylium,0,Warped Nylium
+basalt,0,Basalt,0,Basalt
+polished_basalt,0,Polished Basalt,0,Polished Basalt
+soul_soil,0,Soul Soil,0,Soul Soil
+soul_fire,0,Soul Fire,0,Soul Fire
+nether_sprouts,0,Nether Sprouts,0,Nether Sprouts
+target,0,Target,0,Target
+stripped_crimson_stem,0,Stripped Crimson Stem,0,Stripped Crimson Stem
+stripped_warped_stem,0,Stripped Warped Stem,0,Stripped Warped Stem
+crimson_planks,0,Crimson Planks,0,Crimson Planks
+warped_planks,0,Warped Planks,0,Warped Planks
+crimson_door,0,Crimson Door,0,Crimson Door
+warped_door,0,Warped Door,0,Warped Door
+crimson_trapdoor,0,Crimson Trapdoor,0,Crimson Trapdoor
+warped_trapdoor,0,Warped Trapdoor,0,Warped Trapdoor
+crimson_standing_sign,0,Crimson Sign,0,Crimson Sign
+warped_standing_sign,0,Warped Sign,0,Warped Sign
+crimson_wall_sign,0,Crimson Wall Sign,0,Crimson Wall Sign
+warped_wall_sign,0,Warped Wall Sign,0,Warped Wall Sign
+crimson_stairs,0,Crimson Stairs,0,Crimson Stairs
+warped_stairs,0,Warped Stairs,0,Warped Stairs
+crimson_fence,0,Crimson Fence,0,Crimson Fence
+warped_fence,0,Warped Fence,0,Warped Fence
+crimson_fence_gate,0,Crimson Fence Gate,0,Crimson Fence Gate
+warped_fence_gate,0,Warped Fence Gate,0,Warped Fence Gate
+crimson_button,0,Crimson Button,0,Crimson Button
+warped_button,0,Warped Button,0,Warped Button
+crimson_pressure_plate,0,Crimson Pressure Plate,0,Crimson Pressure Plate
+warped_pressure_plate,0,Warped Pressure Plate,0,Warped Pressure Plate
+crimson_slab,0,Crimson Slab,0,Crimson Slab
+warped_slab,0,Warped Slab,0,Warped Slab
+crimson_double_slab,0,Crimson Double Slab,0,Crimson Double Slab
+warped_double_slab,0,Warped Double Slab,0,Warped Double Slab
+soul_torch,0,Soul Torch,0,Soul Torch
+soul_lantern,0,Soul Lantern,0,Soul Lantern
+netherite_block,0,Block of Netherite,0,Block of Netherite
+ancient_debris,0,Ancient Debris,0,Ancient Debris
+respawn_anchor,0,Respawn Anchor,0,Respawn Anchor
+blackstone,0,Blackstone,0,Blackstone
+polished_blackstone_bricks,0,Polished Blackstone Bricks,0,Polished Blackstone Bricks
+polished_blackstone_brick_stairs,0,Polished Blackstone Brick Stairs,0,Polished Blackstone Brick Stairs
+blackstone_stairs,0,Blackstone Stairs,0,Blackstone Stairs
+blackstone_wall,0,Blackstone Wall,0,Blackstone Wall
+polished_blackstone_brick_wall,0,Polished Blackstone Brick Wall,0,Polished Blackstone Brick Wall
+chiseled_polished_blackstone,0,Chiseled Polished Blackstone,0,Chiseled Polished Blackstone
+cracked_polished_blackstone_bricks,0,Cracked Polished Blackstone Bricks,0,Cracked Polished Blackstone Bricks
+gilded_blackstone,0,Gilded Blackstone,0,Gilded Blackstone
+blackstone_slab,0,Blackstone Slab,0,Blackstone Slab
+blackstone_double_slab,0,Blackstone Double Slab,0,Blackstone Double Slab
+polished_blackstone_brick_slab,0,Polished Blackstone Brick Slab,0,Polished Blackstone Brick Slab
+polished_blackstone_brick_double_slab,0,Polished Blackstone Brick Double Slab,0,Polished Blackstone Brick Double Slab
+chain,0,Chain,0,Chain
+twisting_vines,0,Twisting Vines,0,Twisting Vines
+nether_gold_ore,0,Nether Gold Ore,0,Nether Gold Ore
+crying_obsidian,0,Crying Obsidian,0,Crying Obsidian
+soul_campfire,0,Soul Campfire,0,Soul Campfire
+polished_blackstone,0,Polished Blackstone,0,Polished Blackstone
+polished_blackstone_stairs,0,Polished Blackstone Stairs,0,Polished Blackstone Stairs
+polished_blackstone_slab,0,Polished Blackstone Slab,0,Polished Blackstone Slab
+polished_blackstone_double_slab,0,Polished Blackstone Double Slab,0,Polished Blackstone Double Slab
+polished_blackstone_pressure_plate,0,Polished Blackstone Pressure Plate,0,Polished Blackstone Pressure Plate
+polished_blackstone_button,0,Polished Blackstone Button,0,Polished Blackstone Button
+polished_blackstone_wall,0,Polished Blackstone Wall,0,Polished Blackstone Wall
+warped_hyphae,0,Warped Hyphae,0,Warped Hyphae
+crimson_hyphae,0,Crimson Hyphae,0,Crimson Hyphae
+stripped_crimson_hyphae,0,Stripped Crimson Hyphae,0,Stripped Crimson Hyphae
+stripped_warped_hyphae,0,Stripped Warped Hyphae,0,Stripped Warped Hyphae
+chiseled_nether_bricks,0,Chiseled Nether Bricks,0,Chiseled Nether Bricks
+cracked_nether_bricks,0,Cracked Nether Bricks,0,Cracked Nether Bricks
+quartz_bricks,0,Quartz Bricks,0,Quartz Bricks
+unknown,0,Unknown,0,Unknown
+powder_snow,0,Powder Snow,0,Powder Snow
+sculk_sensor,0,Sculk Sensor,0,Sculk Sensor
+pointed_dripstone,0,Pointed Dripstone,0,Pointed Dripstone
+copper_ore,0,Copper Ore,0,Copper Ore
+lightning_rod,0,Lightning Rod,0,Lightning Rod
+dripstone_block,0,Dripstone Block,0,Dripstone Block
+dirt_with_roots,0,Rooted Dirt,0,Rooted Dirt
+hanging_roots,0,Hanging Roots,0,Hanging Roots
+moss_block,0,Moss Block,0,Moss Block
+spore_blossom,0,Spore Blossom,0,Spore Blossom
+cave_vines,0,Cave Vines,0,Cave Vines
+big_dripleaf,0,Big Dripleaf,0,Big Dripleaf
+azalea_leaves,0,Azalea Leaves,0,Azalea Leaves
+azalea_leaves_flowered,0,Flowered Azalea Leaves,0,Flowered Azalea Leaves
+calcite,0,Calcite,0,Calcite
+amethyst_block,0,Amethyst Block,0,Amethyst Block
+budding_amethyst,0,Budding Amethyst,0,Budding Amethyst
+amethyst_cluster,0,Amethyst Cluster,0,Amethyst Cluster
+large_amethyst_bud,0,Large Amethyst Bud,0,Large Amethyst Bud
+medium_amethyst_bud,0,Medium Amethyst Bud,0,Medium Amethyst Bud
+small_amethyst_bud,0,Small Amethyst Bud,0,Small Amethyst Bud
+tuff,0,Tuff,0,Tuff
+tinted_glass,0,Tinted Glass,0,Tinted Glass
+moss_carpet,0,Moss Carpet,0,Moss Carpet
+small_dripleaf_block,0,Small Dripleaf,0,Small Dripleaf
+azalea,0,Azalea,0,Azalea
+flowering_azalea,0,Flowering Azalea,0,Flowering Azalea
+glow_frame,0,Glow Item Frame,0,Glow Item Frame
+copper_block,0,Block of Copper,0,Block of Copper
+exposed_copper,0,Exposed Copper,0,Exposed Copper
+weathered_copper,0,Weathered Copper,0,Weathered Copper
+oxidized_copper,0,Oxidized Copper,0,Oxidized Copper
+waxed_copper,0,Waxed Block of Copper,0,Waxed Block of Copper
+waxed_exposed_copper,0,Waxed Exposed Copper,0,Waxed Exposed Copper
+waxed_weathered_copper,0,Waxed Weathered Copper,0,Waxed Weathered Copper
+cut_copper,0,Cut Copper,0,Cut Copper
+exposed_cut_copper,0,Exposed Cut Copper,0,Exposed Cut Copper
+weathered_cut_copper,0,Weathered Cut Copper,0,Weathered Cut Copper
+oxidized_cut_copper,0,Oxidized Cut Copper,0,Oxidized Cut Copper
+waxed_cut_copper,0,Waxed Cut Copper,0,Waxed Cut Copper
+waxed_exposed_cut_copper,0,Waxed Exposed Cut Copper,0,Waxed Exposed Cut Copper
+waxed_weathered_cut_copper,0,Waxed Weathered Cut Copper,0,Waxed Weathered Cut Copper
+cut_copper_stairs,0,Cut Copper Stairs,0,Cut Copper Stairs
+exposed_cut_copper_stairs,0,Exposed Cut Copper Stairs,0,Exposed Cut Copper Stairs
+weathered_cut_copper_stairs,0,Weathered Cut Copper Stairs,0,Weathered Cut Copper Stairs
+oxidized_cut_copper_stairs,0,Oxidized Cut Copper Stairs,0,Oxidized Cut Copper Stairs
+waxed_cut_copper_stairs,0,Waxed Cut Copper Stairs,0,Waxed Cut Copper Stairs
+waxed_exposed_cut_copper_stairs,0,Waxed Exposed Cut Copper Stairs,0,Waxed Exposed Cut Copper Stairs
+waxed_weathered_cut_copper_stairs,0,Waxed Weathered Cut Copper Stairs,0,Waxed Weathered Cut Copper Stairs
+cut_copper_slab,0,Cut Copper Slab,0,Cut Copper Slab
+exposed_cut_copper_slab,0,Exposed Cut Copper Slab,0,Exposed Cut Copper Slab
+weathered_cut_copper_slab,0,Weathered Cut Copper Slab,0,Weathered Cut Copper Slab
+oxidized_cut_copper_slab,0,Oxidized Cut Copper Slab,0,Oxidized Cut Copper Slab
+waxed_cut_copper_slab,0,Waxed Cut Copper Slab,0,Waxed Cut Copper Slab
+waxed_exposed_cut_copper_slab,0,Waxed Exposed Cut Copper Slab,0,Waxed Exposed Cut Copper Slab
+waxed_weathered_cut_copper_slab,0,Waxed Weathered Cut Copper Slab,0,Waxed Weathered Cut Copper Slab
+double_cut_copper_slab,0,Double Cut Copper Slab,0,Double Cut Copper Slab
+exposed_double_cut_copper_slab,0,Exposed Double Cut Copper Slab,0,Exposed Double Cut Copper Slab
+weathered_double_cut_copper_slab,0,Weathered Double Cut Copper Slab,0,Weathered Double Cut Copper Slab
+oxidized_double_cut_copper_slab,0,Oxidized Double Cut Copper Slab,0,Oxidized Double Cut Copper Slab
+waxed_double_cut_copper_slab,0,Waxed Double Cut Copper Slab,0,Waxed Double Cut Copper Slab
+waxed_exposed_double_cut_copper_slab,0,Waxed Exposed Double Cut Copper Slab,0,Waxed Exposed Double Cut Copper Slab
+waxed_weathered_double_cut_copper_slab,0,Waxed Weathered Double Cut Copper Slab,0,Waxed Weathered Double Cut Copper Slab
+cave_vines_body_with_berries,0,Cave Vines Body With Berries,0,Cave Vines Body With Berries
+cave_vines_head_with_berries,0,Cave Vines Head With Berries,0,Cave Vines Head With Berries
+smooth_basalt,0,Smooth Basalt,0,Smooth Basalt
+deepslate,0,Deepslate,0,Deepslate
+cobbled_deepslate,0,Cobbled Deepslate,0,Cobbled Deepslate
+cobbled_deepslate_slab,0,Cobbled Deepslate Slab,0,Cobbled Deepslate Slab
+cobbled_deepslate_stairs,0,Cobbled Deepslate Stairs,0,Cobbled Deepslate Stairs
+cobbled_deepslate_wall,0,Cobbled Deepslate Wall,0,Cobbled Deepslate Wall
+polished_deepslate,0,Polished Deepslate,0,Polished Deepslate
+polished_deepslate_slab,0,Polished Deepslate Slab,0,Polished Deepslate Slab
+polished_deepslate_stairs,0,Polished Deepslate Stairs,0,Polished Deepslate Stairs
+polished_deepslate_wall,0,Polished Deepslate Wall,0,Polished Deepslate Wall
+deepslate_tiles,0,Deepslate Tiles,0,Deepslate Tiles
+deepslate_tile_slab,0,Deepslate Tile Slab,0,Deepslate Tile Slab
+deepslate_tile_stairs,0,Deepslate Tile Stairs,0,Deepslate Tile Stairs
+deepslate_tile_wall,0,Deepslate Tile Wall,0,Deepslate Tile Wall
+deepslate_bricks,0,Deepslate Bricks,0,Deepslate Bricks
+deepslate_brick_slab,0,Deepslate Brick Slab,0,Deepslate Brick Slab
+deepslate_brick_stairs,0,Deepslate Brick Stairs,0,Deepslate Brick Stairs
+deepslate_brick_wall,0,Deepslate Brick Wall,0,Deepslate Brick Wall
+chiseled_deepslate,0,Chiseled Deepslate,0,Chiseled Deepslate
+cobbled_deepslate_double_slab,0,Cobbled Deepslate Double Slab,0,Cobbled Deepslate Double Slab
+polished_deepslate_double_slab,0,Polished Deepslate Double Slab,0,Polished Deepslate Double Slab
+deepslate_tile_double_slab,0,Deepslate Tile Double Slab,0,Deepslate Tile Double Slab
+deepslate_brick_double_slab,0,Deepslate Brick Double Slab,0,Deepslate Brick Double Slab
+deepslate_lapis_ore,0,Deepslate Lapis Lazuli Ore,0,Deepslate Lapis Lazuli Ore
+deepslate_iron_ore,0,Deepslate Iron Ore,0,Deepslate Iron Ore
+deepslate_gold_ore,0,Deepslate Gold Ore,0,Deepslate Gold Ore
+deepslate_redstone_ore,0,Deepslate Redstone Ore,0,Deepslate Redstone Ore
+lit_deepslate_redstone_ore,0,Lit Deepslate Redstone Ore,0,Lit Deepslate Redstone Ore
+deepslate_diamond_ore,0,Deepslate Diamond Ore,0,Deepslate Diamond Ore
+deepslate_coal_ore,0,Deepslate Coal Ore,0,Deepslate Coal Ore
+deepslate_emerald_ore,0,Deepslate Emerald Ore,0,Deepslate Emerald Ore
+deepslate_copper_ore,0,Deepslate Copper Ore,0,Deepslate Copper Ore
+cracked_deepslate_tiles,0,Cracked Deepslate Tiles,0,Cracked Deepslate Tiles
+cracked_deepslate_bricks,0,Cracked Deepslate Bricks,0,Cracked Deepslate Bricks
+glow_lichen,0,Glow Lichen,0,Glow Lichen
+candle,0,Candle,0,Candle
+white_candle,0,White Candle,0,White Candle
+orange_candle,0,Orange Candle,0,Orange Candle
+magenta_candle,0,Magenta Candle,0,Magenta Candle
+light_blue_candle,0,Light Blue Candle,0,Light Blue Candle
+yellow_candle,0,Yellow Candle,0,Yellow Candle
+lime_candle,0,Lime Candle,0,Lime Candle
+pink_candle,0,Pink Candle,0,Pink Candle
+gray_candle,0,Gray Candle,0,Gray Candle
+light_gray_candle,0,Light Gray Candle,0,Light Gray Candle
+cyan_candle,0,Cyan Candle,0,Cyan Candle
+purple_candle,0,Purple Candle,0,Purple Candle
+blue_candle,0,Blue Candle,0,Blue Candle
+brown_candle,0,Brown Candle,0,Brown Candle
+green_candle,0,Green Candle,0,Green Candle
+red_candle,0,Red Candle,0,Red Candle
+black_candle,0,Black Candle,0,Black Candle
+candle_cake,0,Cake with Candle,0,Cake with Candle
+white_candle_cake,0,Cake with White Candle,0,Cake with White Candle
+orange_candle_cake,0,Cake with Orange Candle,0,Cake with Orange Candle
+magenta_candle_cake,0,Cake with Magenta Candle,0,Cake with Magenta Candle
+light_blue_candle_cake,0,Cake with Light Blue Candle,0,Cake with Light Blue Candle
+yellow_candle_cake,0,Cake with Yellow Candle,0,Cake with Yellow Candle
+lime_candle_cake,0,Cake with Lime Candle,0,Cake with Lime Candle
+pink_candle_cake,0,Cake with Pink Candle,0,Cake with Pink Candle
+gray_candle_cake,0,Cake with Gray Candle,0,Cake with Gray Candle
+light_gray_candle_cake,0,Cake with Light Gray Candle,0,Cake with Light Gray Candle
+cyan_candle_cake,0,Cake with Cyan Candle,0,Cake with Cyan Candle
+purple_candle_cake,0,Cake with Purple Candle,0,Cake with Purple Candle
+blue_candle_cake,0,Cake with Blue Candle,0,Cake with Blue Candle
+brown_candle_cake,0,Cake with Brown Candle,0,Cake with Brown Candle
+green_candle_cake,0,Cake with Green Candle,0,Cake with Green Candle
+red_candle_cake,0,Cake with Red Candle,0,Cake with Red Candle
+black_candle_cake,0,Cake with Black Candle,0,Cake with Black Candle
+waxed_oxidized_copper,0,Waxed Oxidized Copper,0,Waxed Oxidized Copper
+waxed_oxidized_cut_copper,0,Waxed Oxidized Cut Copper,0,Waxed Oxidized Cut Copper
+waxed_oxidized_cut_copper_stairs,0,Waxed Oxidized Cut Copper Stairs,0,Waxed Oxidized Cut Copper Stairs
+waxed_oxidized_cut_copper_slab,0,Waxed Oxidized Cut Copper Slab,0,Waxed Oxidized Cut Copper Slab
+waxed_oxidized_double_cut_copper_slab,0,Waxed Oxidized Double Cut Copper Slab,0,Waxed Oxidized Double Cut Copper Slab
+raw_iron_block,0,Block of Raw Iron,0,Block of Raw Iron
+raw_copper_block,0,Block of Raw Copper,0,Block of Raw Copper
+raw_gold_block,0,Block of Raw Gold,0,Block of Raw Gold
+infested_deepslate,0,Infested Deepslate,0,Infested Deepslate
+sculk,0,Sculk,0,Sculk
+sculk_vein,0,Sculk Vein,0,Sculk Vein
+sculk_catalyst,0,Sculk Catalyst,0,Sculk Catalyst
+sculk_shrieker,0,Sculk Shrieker,0,Sculk Shrieker
+frog_spawn,0,Frog Spawn,0,Frog Spawn
+pearlescent_froglight,0,Pearlescent Froglight,0,Pearlescent Froglight
+verdant_froglight,0,Verdant Froglight,0,Verdant Froglight
+ochre_froglight,0,Ochre Froglight,0,Ochre Froglight
