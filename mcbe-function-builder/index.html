@@ -18,29 +18,99 @@
     <!-- Load a message file -->
     <script src="https://unpkg.com/blockly/msg/en.js"></script>
 
-
+    <script src="./mcbe-function-builder/generators/commands.js"></script>
+ 
     <script>
 
         function OnLoad() {
+            //not sure where this goes yet
+            //import {commandGenerator} from '/generators/commands'
 
             const toolbox = {
-                // There are two kinds of toolboxes. The simpler one is a flyout toolbox.
-                kind: 'flyoutToolbox',
-                // The contents is the blocks and other items that exist in your toolbox.
-                contents: [
+                
+                "kind": 'categoryToolbox',
+                "contents": [
                     {
-                        kind: 'block',
-                        type: 'controls_if'
+                        "kind": "category",
+                        "name": "Block management",
+                        "contents": [
+                            {
+                                "kind": 'block',
+                                "type": 'commands_fill'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'commands_setblock'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'block_from_text'
+                            },
+                        ]
                     },
                     {
-                        kind: 'block',
-                        type: 'controls_whileUntil'
+                        "kind": "category",
+                        "name": "Entity management",
+                        "contents": [
+                            {
+                                "kind": 'block',
+                                "type": 'commands_give'
+                            },
+                        ]
                     },
                     {
-                        kind: 'block',
-                        type: 'my_custom_block'
-                    }
-                    // You can add more blocks to this array.
+                        "kind": "category",
+                        "name": "Entities",
+                        "contents": [
+                            {
+                                "kind": 'block',
+                                "type": 'entity_name'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'entity_no_limits'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'entity_with_limits'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'selector_limit_count'
+                            },
+                        ]
+                    },
+                    {
+                        "kind": "category",
+                        "name": "Positions",
+                        "contents": [
+                            {
+                                "kind": 'block',
+                                "type": 'position_current'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'position_absolute'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'position_relative'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'position_custom'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'position_blocks_forward'
+                            },
+                            {
+                                "kind": 'block',
+                                "type": 'position_from_text'
+                            },
+                        ]
+                    },
+
                 ]
             };
 
@@ -69,17 +139,439 @@
                 previousStatement: null,
                 // Adds an untyped next connection to the bottom of the block.
                 nextStatement: null,
+            },
+            {
+            "type": "commands_fill",
+            "message0": "Fill from position %1 to position %2 with block %3",
+            "args0": [
+                {
+                "type": "input_value",
+                "name": "position1",
+                "check": "mc_position",
+                "align": "RIGHT"
+                },
+                {
+                "type": "input_value",
+                "name": "position2",
+                "check": "mc_position",
+                "align": "RIGHT"
+                },
+                {
+                "type": "input_value",
+                "name": "block",
+                "check": "mc_block",
+                "align": "RIGHT"
+                }
+            ],
+            "previousStatement": "d",
+            "nextStatement": "d",
+            "colour": 230,
+            "tooltip": "fills a cuboid area with a single type of block",
+            "helpUrl": ""
+            },
+            {
+            "type": "position_current",
+            "message0": "my position",
+            "output": "mc_position",
+            "colour": 315,
+            "tooltip": "the current position",
+            "helpUrl": ""
+            },
+            {
+            "type": "position_absolute",
+            "message0": "position x %1 y %2 z %3",
+            "args0": [
+                {
+                "type": "field_number",
+                "name": "x",
+                "value": 0,
+                "precision": 1
+                },
+                {
+                "type": "field_number",
+                "name": "y",
+                "value": 0,
+                "precision": 1
+                },
+                {
+                "type": "field_number",
+                "name": "z",
+                "value": 0,
+                "precision": 1
+                }
+            ],
+            "output": "mc_position",
+            "colour": 315,
+            "tooltip": "Minecraft world coordinates",
+            "helpUrl": ""
+            },
+            {
+            "type": "position_relative",
+            "message0": "relative position x %1 y %2 z %3",
+            "args0": [
+                {
+                "type": "field_number",
+                "name": "x",
+                "value": 0,
+                "precision": 1
+                },
+                {
+                "type": "field_number",
+                "name": "y",
+                "value": 0,
+                "precision": 1
+                },
+                {
+                "type": "field_number",
+                "name": "z",
+                "value": 0,
+                "precision": 1
+                }
+            ],
+            "output": "mc_position",
+            "colour": 315,
+            "tooltip": "An offset from the one running the command",
+            "helpUrl": ""
+            },
+            {
+            "type": "position_custom",
+            "implicitAlign0": "RIGHT",
+            "message0": "position  %1 x %2 relative %3 %4 y %5 relative %6 %7 z %8 relative %9",
+            "args0": [
+                {
+                "type": "input_dummy"
+                },
+                {
+                "type": "field_number",
+                "name": "x",
+                "value": 0,
+                "precision": 1
+                },
+                {
+                "type": "field_checkbox",
+                "name": "relative_x",
+                "checked": false
+                },
+                {
+                "type": "input_dummy",
+                "align": "RIGHT"
+                },
+                {
+                "type": "field_number",
+                "name": "y",
+                "value": 0,
+                "precision": 1
+                },
+                {
+                "type": "field_checkbox",
+                "name": "relative_y",
+                "checked": false
+                },
+                {
+                "type": "input_dummy",
+                "align": "RIGHT"
+                },
+                {
+                "type": "field_number",
+                "name": "z",
+                "value": 0,
+                "precision": 1
+                },
+                {
+                "type": "field_checkbox",
+                "name": "relative_z",
+                "checked": false
+                }
+            ],
+            "output": "mc_position",
+            "colour": 315,
+            "tooltip": "Position with options to make each coordinate relative to the one running the command",
+            "helpUrl": ""
+            },
+            {
+            "type": "commands_setblock",
+            "message0": "set position %1 to block %2",
+            "args0": [
+                {
+                "type": "input_value",
+                "name": "position1",
+                "check": "mc_position",
+                "align": "RIGHT"
+                },
+                {
+                "type": "input_value",
+                "name": "block",
+                "check": "mc_block",
+                "align": "RIGHT"
+                }
+            ],
+            "previousStatement": "d",
+            "nextStatement": "d",
+            "colour": 230,
+            "tooltip": "replace a single block",
+            "helpUrl": ""
+            },
+            {
+            "type": "position_blocks_forward",
+            "message0": "position %1 blocks forward",
+            "args0": [
+                {
+                "type": "field_number",
+                "name": "blocks_z",
+                "value": 5
+                }
+            ],
+            "output": "mc_position",
+            "colour": 315,
+            "tooltip": "the position an amount of blocks in front",
+            "helpUrl": ""
+            },
+            {
+            "type": "position_from_text",
+            "message0": "position from text %1",
+            "args0": [
+                {
+                "type": "field_input",
+                "name": "text",
+                "text": "~ ~5 ~"
+                }
+            ],
+            "output": "mc_position",
+            "colour": 315,
+            "tooltip": "generate a position from text. Relative position is denoted with a ~ symbol. Example: ~ 100 ~",
+            "helpUrl": ""
+            },
+            {
+            "type": "block_from_text",
+            "message0": "block from text %1",
+            "args0": [
+                {
+                "type": "field_input",
+                "name": "text",
+                "text": "command_block"
+                }
+            ],
+            "output": "mc_block",
+            "colour": 230,
+            "tooltip": "a block from text",
+            "helpUrl": ""
+            },
+            {
+            "type": "commands_give",
+            "message0": "give player(s) %1 %2 of item %3",
+            "args0": [
+                {
+                "type": "input_value",
+                "name": "player",
+                "check": "mc_entity",
+                "align": "RIGHT"
+                },
+                {
+                "type": "field_number",
+                "name": "count",
+                "value": 1,
+                "precision": 1
+                },
+                {
+                "type": "input_value",
+                "name": "item",
+                "check": "mc_item",
+                "align": "RIGHT"
+                }
+            ],
+            "previousStatement": "d",
+            "nextStatement": "d",
+            "colour": 120,
+            "tooltip": "a block from text",
+            "helpUrl": ""
+            },
+            {
+            "type": "entity_name",
+            "message0": "player named %1",
+            "args0": [
+                {
+                "type": "field_input",
+                "name": "name",
+                "text": "clfish"
+                }
+            ],
+            "output": "mc_entity",
+            "colour": 0,
+            "tooltip": "a player from text",
+            "helpUrl": ""
+            },
+            {
+            "type": "entity_with_limits",
+            "message0": "entity or entities %1 %2 limits %3",
+            "args0": [
+                {
+                "type": "field_dropdown",
+                "name": "NAME",
+                "options": [
+                    [
+                    "this entity",
+                    "@s"
+                    ],
+                    [
+                    "all players",
+                    "@a"
+                    ],
+                    [
+                    "all entities",
+                    "@e"
+                    ],
+                    [
+                    "closest player",
+                    "@p"
+                    ],
+                    [
+                    "random player",
+                    "@r"
+                    ],
+                    [
+                    "player interacting with NPC",
+                    "@initiator"
+                    ]
+                ]
+                },
+                {
+                "type": "input_dummy"
+                },
+                {
+                "type": "input_statement",
+                "name": "NAME",
+                "check": "selector_limit"
+                }
+            ],
+            "output": "mc_entity",
+            "colour": 0,
+            "tooltip": "an entity or entities, filtered with limits.",
+            "helpUrl": ""
+            },
+            {
+            "type": "entity_no_limits",
+            "message0": "entity or entities %1",
+            "args0": [
+                {
+                "type": "field_dropdown",
+                "name": "NAME",
+                "options": [
+                    [
+                    "this entity",
+                    "@s"
+                    ],
+                    [
+                    "all players",
+                    "@a"
+                    ],
+                    [
+                    "all entities",
+                    "@e"
+                    ],
+                    [
+                    "closest player",
+                    "@p"
+                    ],
+                    [
+                    "random player",
+                    "@r"
+                    ],
+                    [
+                    "player interacting with NPC",
+                    "@initiator"
+                    ]
+                ]
+                }
+            ],
+            "output": "mc_entity",
+            "colour": 0,
+            "tooltip": "an entity or entities",
+            "helpUrl": ""
+            },
+            {
+            "type": "selector_limit_count",
+            "message0": "limit entity count to %1 %2 entities",
+            "args0": [
+                {
+                "type": "field_dropdown",
+                "name": "near",
+                "options": [
+                    [
+                    "nearest",
+                    "near"
+                    ],
+                    [
+                    "furthest",
+                    "far"
+                    ]
+                ]
+                },
+                {
+                "type": "field_number",
+                "name": "count",
+                "value": 0,
+                "min": 1,
+                "precision": 1
+                }
+            ],
+            "previousStatement": "selector_limit",
+            "nextStatement": "selector_limit",
+            "colour": 0,
+            "tooltip": "a limit for an entity. use with entity or entities block.",
+            "helpUrl": ""
             }
             ]);
 
             // The toolbox gets passed to the configuration struct during injection.
-            const workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
+            // const workspace = Blockly.inject('blocklyDiv', {toolbox: toolbox});
+
+            const blocklyArea = document.getElementById('blocklyArea');
+            const blocklyDiv = document.getElementById('blocklyDiv');
+            const workspace = Blockly.inject(blocklyDiv,
+                {toolbox: toolbox});
+            const onresize = function(e) {
+            // Compute the absolute coordinates and dimensions of blocklyArea.
+            var element = blocklyArea;
+            let x = 0;
+            let y = 0;
+            do {
+                x += element.offsetLeft;
+                y += element.offsetTop;
+                element = element.offsetParent;
+            } while (element);
+            // Position blocklyDiv over blocklyArea.
+            blocklyDiv.style.left = x + 'px';
+            blocklyDiv.style.top = y + 'px';
+            blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+            blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+            Blockly.svgResize(workspace);
+            };
+            window.addEventListener('resize', onresize, false);
+            onresize();
+
+            // Code generation
+            const supportedEvents = new Set([
+                Blockly.Events.BLOCK_CHANGE,
+                Blockly.Events.BLOCK_CREATE,
+                Blockly.Events.BLOCK_DELETE,
+                Blockly.Events.BLOCK_MOVE,
+            ]);
+
+            function updateCode(event) {
+            if (workspace.isDragging()) return; // Don't update while changes are happening.
+            if (!supportedEvents.has(event.type)) return;
+
+            const code = commandGenerator.workspaceToCode(workspace);
+            console.log(code)
+            }
+
+            workspace.addChangeListener(updateCode);
         
         }
 
-    </script>
+        
 
-</head>
+    </script>
 
 <title>MCBE Function Builder</title>
 
@@ -93,7 +585,11 @@
 
 
 <body onload = "OnLoad()">
-    <div id="blocklyDiv" style="height: 480px; width: 600px;">
+    <div id="blocklyArea" class="box">
+        
+    </div>
+
+    <div id="blocklyDiv" style="position: absolute">
         
     </div>
 
