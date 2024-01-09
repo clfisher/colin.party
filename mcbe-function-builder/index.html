@@ -552,7 +552,31 @@
             // Code generation
             const commandGenerator = new Blockly.Generator('COMMANDS');
 
+            const Order = {
+                ATOMIC: 0,
+            }
 
+            commandGenerator.forBlock['commands_fill'] = function(block, generator) {
+
+                position1 = generator.valueToCode(block, 'position1', Order.ATOMIC)
+                if (position1 == '') position1 = '~ ~ ~'
+                position2 = generator.valueToCode(block, 'position2', Order.ATOMIC)
+                if (position2 == '') position2 = '~ ~ ~'
+                
+
+                string = ''
+                string += 'fill '
+                string += position1
+                string += ' '
+                string += position2
+                string += ' bedrock'
+                return string
+            }
+
+            commandGenerator.forBlock['position_current'] = function(block, generator) {
+
+                return ['~ ~ ~', Order.ATOMIC]
+            }
 
 
 
