@@ -18,7 +18,7 @@
     <!-- Load a message file -->
     <script src="https://unpkg.com/blockly/msg/en.js"></script>
 
-    <script src="./mcbe-function-builder/generators/commands.js"></script>
+    <!-- <script src="./mcbe-function-builder/generators/commands.js"></script> -->
  
     <script>
 
@@ -550,6 +550,14 @@
             onresize();
 
             // Code generation
+            const commandGenerator = new Blockly.Generator('COMMANDS');
+
+
+
+
+
+
+            // Run code generation
             const supportedEvents = new Set([
                 Blockly.Events.BLOCK_CHANGE,
                 Blockly.Events.BLOCK_CREATE,
