@@ -911,4 +911,35 @@
         <field name="HUE">0</field>
       </block>
     </value>
+  </block><block type="factory_base" id="+*w3-1QG3y8^WeZE?M1#" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTTOM"></mutation>
+    <field name="NAME">start_program</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTTOM</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="}E$?=fT!u$PQJwJs*6Jo">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="#k,524p{^#+^*/vKbU{j">
+            <field name="TEXT">When commands run</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="{xg$gfb,?Y3D$.0,qHaA" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="ehay{1S8IHTbLh|dO_00" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="3vD%0elW]k]HndZr95~%"></shadow>
+      <block type="type_other" id="T7|iH%%VvAnx87$iZYMV">
+        <field name="TYPE">d</field>
+      </block>
+    </value>
   </block></xml>
