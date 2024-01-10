@@ -45,10 +45,6 @@
                             {
                                 "kind": 'block',
                                 "type": 'block_from_text'
-                            },
-                            {
-                                "kind": 'block',
-                                "type": 'start_program'
                             }
                         ]
                     },
@@ -656,6 +652,35 @@
                     Order.ATOMIC
                 ]
             }
+
+            commandGenerator.forBlock['commands_setblock'] = function (block, generator) {
+
+                position1 = generator.valueToCode(block, 'position', Order.ATOMIC)
+                if (position1 == '') position1 = '~ ~ ~'
+
+                return `/setblock ${position1} bedrock`
+            }
+
+            commandGenerator.forBlock['position_blocks_forward'] = function (block, generator) {
+
+                blocks_z = block.getFieldValue('blocks_z')
+
+                return [
+                    `^ ^ ^${blocks_z}`,
+                    Order.ATOMIC
+                ]
+            }
+
+            commandGenerator.forBlock['position_from_text'] = function (block, generator) {
+
+                text = block.getFieldValue('text')
+
+                return [
+                    text,
+                    Order.ATOMIC
+                ]
+            }
+
 
 
 
