@@ -289,27 +289,27 @@
             "helpUrl": ""
             },
             {
-            "type": "commands_setblock",
-            "message0": "set position %1 to block %2",
-            "args0": [
-                {
-                "type": "input_value",
-                "name": "position1",
-                "check": "mc_position",
-                "align": "RIGHT"
-                },
-                {
-                "type": "input_value",
-                "name": "block",
-                "check": "mc_block",
-                "align": "RIGHT"
-                }
-            ],
-            "previousStatement": "d",
-            "nextStatement": "d",
-            "colour": 230,
-            "tooltip": "replace a single block",
-            "helpUrl": ""
+                "type": "commands_setblock",
+                "message0": "set position %1 to block %2",
+                "args0": [
+                    {
+                    "type": "input_value",
+                    "name": "position",
+                    "check": "mc_position",
+                    "align": "RIGHT"
+                    },
+                    {
+                    "type": "input_value",
+                    "name": "block",
+                    "check": "mc_block",
+                    "align": "RIGHT"
+                    }
+                ],
+                "previousStatement": "d",
+                "nextStatement": "d",
+                "colour": 230,
+                "tooltip": "sets a single block in the world",
+                "helpUrl": ""
             },
             {
             "type": "position_blocks_forward",
@@ -556,6 +556,19 @@
                 ATOMIC: 0,
             }
 
+            commandGenerator.scrub_ = function(block, code, thisOnly) {
+                const nextBlock =
+                    block.nextConnection && block.nextConnection.targetBlock();
+                if (nextBlock && !thisOnly) {
+                    return code + '\n' + commandGenerator.blockToCode(nextBlock);
+                }
+                return code;
+            };
+
+            function CodeGeneratorBool(string) {
+                return string == 'TRUE'
+            }
+
             commandGenerator.forBlock['commands_fill'] = function(block, generator) {
 
                 position1 = generator.valueToCode(block, 'position1', Order.ATOMIC)
@@ -564,24 +577,92 @@
                 if (position2 == '') position2 = '~ ~ ~'
                 
 
-                string = ''
-                string += 'fill '
-                string += position1
-                string += ' '
-                string += position2
-                string += ' bedrock'
-                return string
+                // string = ''
+                // string += '/fill '
+                // string += position1
+                // string += ' '
+                // string += position2
+                // string += ' bedrock'
+                // return string
+
+                return `/fill ${position1} ${position2} bedrock`
+            }
+
+            function GeneratePositionString(x, y, z, relative_x, relative_y, relative_z) {
+
+                function Coordinate(n, relative) {
+                    if (relative) n = '~' + n
+                    if (n == '~0') n = '~'
+                    return n
+                }
+
+                return `${Coordinate(x, relative_x)} ${Coordinate(y, relative_y)} ${Coordinate(z, relative_z)}`
             }
 
             commandGenerator.forBlock['position_current'] = function(block, generator) {
 
-                return ['~ ~ ~', Order.ATOMIC]
+                return [
+                    GeneratePositionString(
+                        0,
+                        0,
+                        0,
+                        true,
+                        true,
+                        true,
+                    ),
+                    Order.ATOMIC
+                ]
+            }
+
+            commandGenerator.forBlock['position_absolute'] = function(block, generator) {
+                
+                return [
+                    GeneratePositionString(
+                            block.getFieldValue('x'),
+                            block.getFieldValue('y'),
+                            block.getFieldValue('z'),
+                            false,
+                            false,
+                            false,
+                    ),
+                    Order.ATOMIC
+                ]
+            }
+
+            commandGenerator.forBlock['position_relative'] = function(block, generator) {
+                
+                return [
+                    GeneratePositionString(
+                        block.getFieldValue('x'),
+                        block.getFieldValue('y'),
+                        block.getFieldValue('z'),
+                        true,
+                        true,
+                        true,
+                    ),
+                    Order.ATOMIC
+                ]
+            }
+
+            commandGenerator.forBlock['position_custom'] = function(block, generator) {
+
+                return [
+                    GeneratePositionString(
+                        block.getFieldValue('x'),
+                        block.getFieldValue('y'),
+                        block.getFieldValue('z'),
+                        CodeGeneratorBool(block.getFieldValue('relative_x')),
+                        CodeGeneratorBool(block.getFieldValue('relative_y')),
+                        CodeGeneratorBool(block.getFieldValue('relative_z')),
+                    ),
+                    Order.ATOMIC
+                ]
             }
 
 
 
 
-            // Run code generation
+            // Run code generation on change
             const supportedEvents = new Set([
                 Blockly.Events.BLOCK_CHANGE,
                 Blockly.Events.BLOCK_CREATE,

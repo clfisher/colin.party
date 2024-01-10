@@ -401,7 +401,7 @@
     <field name="CONNECTIONS">BOTH</field>
     <statement name="INPUTS">
       <block type="input_value" id="^d^K0gj8y*}0D3qah_PX">
-        <field name="INPUTNAME">position1</field>
+        <field name="INPUTNAME">position</field>
         <field name="ALIGN">RIGHT</field>
         <statement name="FIELDS">
           <block type="field_static" id="gB[?r63Zte_jg4_jU[Dn">
@@ -435,7 +435,7 @@
     </statement>
     <value name="TOOLTIP">
       <block type="text" id="TGo`xc8~NWm2f{KF#2fn" deletable="false" movable="false">
-        <field name="TEXT">fills a cuboid area with a single type of block</field>
+        <field name="TEXT">sets a single block in the world</field>
       </block>
     </value>
     <value name="HELPURL">
