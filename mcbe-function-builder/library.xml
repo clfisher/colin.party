@@ -911,4 +911,66 @@
         <field name="HUE">0</field>
       </block>
     </value>
+  </block><block type="factory_base" id="K)z{4?1Y,((=ApIT{H1." deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">item_from_text</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="FT0?/~wCQ2NUH5Ql-CI|">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="+93hnH~6U,O[Nn0t-x{a">
+            <field name="TEXT">item</field>
+            <next>
+              <block type="field_input" id="Y9zbDKH`s|XzK554wv)Y">
+                <field name="TEXT">bedrock</field>
+                <field name="FIELDNAME">item</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_dummy" id="]8Yrhup@rvZlXN`pHW*@">
+            <field name="ALIGN">RIGHT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="=c]}X?cSLmGyIwDoDWwR">
+                <field name="TEXT">with data value</field>
+                <next>
+                  <block type="field_number" id="M(sC5Et`]Q({ZAvZ]~#Y">
+                    <field name="VALUE">0</field>
+                    <field name="FIELDNAME">data</field>
+                    <field name="MIN">0</field>
+                    <field name="MAX">Infinity</field>
+                    <field name="PRECISION">0</field>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="Y/kB~wKniHs}_UD~=OFM" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Ey+$+zy_eLB)!0fya1z_" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="|+;@E4~wFWWsDy?qZdDv"></shadow>
+      <block type="type_other" id="GOjav.u6AXnBfcE)O)2{">
+        <field name="TYPE">mc_item</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="ICF/i39gX6CYEYq1lSRH">
+        <mutation colour="#5ba5a5"></mutation>
+        <field name="HUE">180</field>
+      </block>
+    </value>
   </block></xml>
