@@ -56,6 +56,21 @@ select {
     margin: 3px;
 }
 
+.sound-player {
+    margin: 15px;
+
+    vertical-align: middle;
+}
+
+.item {
+    font-family: 'Gantari';
+    font-weight: 500;
+    margin: 15px;
+    color: white;
+
+    vertical-align: middle;
+}
+
 .flex {
     box-sizing: calc(100% - 6px);
     display: flex;
@@ -146,7 +161,7 @@ hr {
 .menu {
     background: rgba(0, 0, 0, 0.623);
     width: calc(100% - 6px);
-    height: auto;
+    height: fit-content;
     padding: 3px;
     border-style: hidden;
     float: left;
