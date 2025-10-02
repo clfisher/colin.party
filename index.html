@@ -8,291 +8,47 @@
     <!-- Set pixel size -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</head>
+    <title>colin.party</title>
 
-<title>colin.party</title>
+    <!-- Favicons -->
 
-<!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon16.png">
 
-<link rel="icon" type="image/png" sizes="64x64" href="/favicon64.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon16.png">
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E9ESBPEJKE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-E9ESBPEJKE');
-</script>
-
-<script>
-
-    function loadIframe(page) {
-        //var game=document.getElementById('game')
-        //game.src=page
-        var game = document.getElementById('game');
-        var container = document.getElementById('gamediv');
-
-        game.remove();
-        game.setAttribute('src', page);
-
-        container.append(game);
-
-
-        
-
-        return false
-    }
-    
-    function loadPage(page,changeurl) {
-
-        var pageToUrl = {
-            '/gradugame': 'https://turbowarp.org/628932501/embed?',
-            '/': 'https://turbowarp.org/628932501/embed?',
-            '/tsunami': 'https://turbowarp.org/662333724/embed?',
-            '/nametest':'https://turbowarp.org/672474347/embed?',
+    <script>
+        function openLink(link) {
+            window.location.href = link
         }
-        console.log(page);
-        var url = pageToUrl[page];
-        url = url ?? 'https://turbowarp.org/628932501/embed?'
-
-
-        //Parameters
-        var params = ''
-        if (getUsername()) {
-            params = '&username='+getUsername()
-        }
-        if (getInterpolation() == 'yes') {
-            params = params + '&interpolate'
-        }
-        params = params + '&fullscreen-background=%23171717&clones=Infinity'
-
-        loadIframe(url+params)
-
-        if (changeurl == true) {
-            if (page=='/gradugame') { renamePage('/') }
-            else { renamePage(page) }
-        }
-    }
-
-    function renamePage(page) {
-
-        window.history.pushState(null, '', page)
-    }
-
-    function handleOnLoad() {
-        // if (document.location.pathname=='/tsunami') {
-        //     loadIframe('https://turbowarp.org/662333724/embed?interpolate')
-        // }
-        // if (document.location.pathname=='/nametest') {
-        //     loadIframe('https://turbowarp.org/672474347/embed?interpolate')
-        // }
-
-        loadPage(document.location.pathname, false)
-        setInterpolationButtonText()
-
-
-
-        // if (getUsername()) {
-        //     document.getElementById('usernameText').innerText = '"'+getUsername()+'"'
-        // }
-        // else {
-        //     document.getElementById('usernameText').innerText = 'auto-generated'
-        // }
-        var text = getUsername() ? '"'+getUsername()+'"' : 'auto-generated' 
-        //var text = getUsername() ?? 'auto-generated' 
-
-        document.getElementById('usernameText').innerText = text
-    }
-    window.addEventListener('popstate', (event) => {
-        var url = document.location.pathname
-        loadPage(url,false)
-    });
-
-    function promptUsername() {
-
-        //Prompt the user
-        if (getUsername() == null) {
-            var promptField = ''
-        }
-        else {
-            var promptField = getUsername()
-        }
-        new_username = window.prompt('Enter your username below. (reloads game!) (if blank, username is reset.)', promptField)
-
-        //Don't allow iframe to reload
-        var iframe_reload = false
-
-        //if cancel not pressed
-        if (new_username!==null) {
-
-            //If the username isn't an empty string
-            if (new_username!=='') {
-
-                //only run if username could exist
-                if (/^[A-Za-z0-9-_]*$/.test(new_username)) {
-
-                    //disable the button
-                    document.getElementById('usernameButton').disabled = true
-
-                    //check existance of username
-                    fetch('/scratchapi/users/'+new_username)
-                    .then(response => response.json())
-                    .then(data => {
-
-                        console.log(data)
-
-                        //set the username
-                        if(data.username) {
-                            promptUsernameDone(new_username)
-                        }
-                        //does not correspond to a valid scratch account
-                        else {
-                            alert('Your username is NOT taken. It needs to be taken on Scratch. A lot are so try another!')
-                        }
-                        //enable the button
-                        document.getElementById('usernameButton').disabled = false
-                        
-                    })           
-                }
-                //username can't exist
-                else {
-                alert("your username wasn't changed, it can only contain A-Z, 0-9, -, _. (and no spaces)")
-                }
-            }
-            //username is an empty string, set to autogenerated
-            else {
-                //set username to autogenerated
-                alert('your username is now auto-generated')
-                document.getElementById('usernameText').innerText = 'auto-generated'
-                setUsername(null)
-                
-                //Reload the Iframe
-                reloadIframe()
-            }
-
-            
-        }
-    }
-
-function promptUsernameDone(new_username) {
-
-    //change username
-    alert('changed username to: "'+new_username+'"')
-    document.getElementById('usernameText').innerText = '"'+new_username+'"'
-    setUsername(new_username)
-
-    iframe_reload = true
-
-    reloadIframe() 
-}
-
-function reloadIframe() {
-    var url = document.location.pathname
-    loadPage(url,false) 
-}
-
-//var _username = ''
-
-function setUsername(newUsername) {
-    //_username = newUsername
-    if (newUsername) {
-        localStorage.setItem('username', newUsername)
-    }
-    else {
-        localStorage.removeItem('username')
-    }
-}
-
-function getUsername() {
-    //return _username
-    return localStorage.getItem('username')
-}
-
-if (!getInterpolation()) {
-    setInterpolation('yes')
-}
-
-function setInterpolationButtonText() {
-    if(getInterpolation() == 'yes') {
-        document.getElementById('interpolationButton').innerText = 'Disable Interpolation'
-    }
-    else {
-        document.getElementById('interpolationButton').innerText = 'Enable Interpolation'
-    }
-}
-
-function setInterpolation(interpolation) {
-    localStorage.setItem('interpolation', interpolation)
-}
-
-function getInterpolation() {
-    return localStorage.getItem('interpolation')
-}
-
-function toggleInterpolation() {
-    if(getInterpolation() == 'yes') {
-        setInterpolation('no')
-        setInterpolationButtonText()
-    }
-    else {
-        setInterpolation('yes')
-        setInterpolationButtonText()
-    }
-    reloadIframe()
-}
-
-function downloadGGSoundtrack() {
-    window.open('/Gradugame soundtrack.zip')
-    
-}
-
-</script>
+    </script>
 
 </head>
 
 
-<body onload="handleOnLoad()">
+<body>
 
-<div class="box" style="
-height: 100%;
-">
+<div class="box">
+    <h1>Welcome to my website 😎👍</h1>
+</div>
 
-    <div class="menu" style="
-    text-align:center;
-    ">
-
-        <ul class="flex">
-            <li> <button id=interpolationButton type="button" onclick="toggleInterpolation()">Disable Interpolation</button> </li>
-            <li>
-                <button type="button" id="usernameButton" onclick="promptUsername()" >Change Username</button>
-                <h5 id=usernameText> auto-generated </h6>
-            </li>
-            <li> <a class="link-button" href="/Gradugame soundtrack.zip" download>Download Music</a> </li>
-            <li> <a class="link-button" href="https://discord.gg/gtkQKUZMWb" target="_blank">Gradugame Discord</a> </li>
-        </ul>
-
+<div style="display: flex; flex-wrap: wrap;">
+    <div class="box column">
+        <h2>My Games</h2> <hr>
+        <button onclick="openLink('/gradugame')">Gradugame</button>
     </div>
-
-    <div id=gamediv class="menu noselect fill-remaining" style="
-    text-align:center;
-    flex-grow : 1;
-    ">
-        <iframe
-        id=game 
-        src=""
-        width="100%"
-        frameborder="0"
-        allowfullscreen
-        style="height: 100%;"
-        ></iframe>
-        
+    
+    <div class="box column">
+        <h2>My Music</h2> <hr>
+        <button onclick="openLink('/music/2024')">2024</button>
+    </div>
+    
+    <div class="box column">
+        <h2>My Other things</h2> <hr>
+        <h3>Coming soon... 🤯</h3>
     </div>
 
 </div>
+
 
 </body>
 

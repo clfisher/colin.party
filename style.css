@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gantari:wght@500;700&display=swap');
 
+body {
+    background-image: url(/background.svg);
+    background-size: 10%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 h1, h2, h3, h4, h5, h6, p {
     font-family: 'Gantari';
     font-weight: 500;
-    margin: 15px;
+    margin: 5px;
     color: white
 }
 
-hr {
-    width: 90%;
-    height: 2px;
-    border: none;
-    background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(90, 90, 90), rgba(255, 0, 0, 0));
-    margin-top: 25px;
-    margin-bottom: 25px;
+h1 {
+    font-size: 50px;
 }
 
 button {
-    width: calc(100% - 6px);
     height: 35px;
 
     font-family: 'Gantari';
@@ -35,91 +37,6 @@ button {
 
     margin: 3px;
     padding: 0 10;
-
-    
-}
-
-input, select {
-    font-family: 'Gantari';
-    font-size: 12pt;
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-}
-
-select {
-    text-align: center;
-    margin: 3px;
-}
-
-#usernameText {
-    margin: 3px;
-}
-
-.sound-player {
-    margin: 15px;
-
-    vertical-align: middle;
-}
-
-.item {
-    font-family: 'Gantari';
-    font-weight: 500;
-    margin: 15px;
-    color: white;
-
-    vertical-align: middle;
-}
-
-.flex {
-    box-sizing: calc(100% - 6px);
-    display: flex;
-    flex-wrap: wrap;
-
-    list-style: none;
-    margin: 3px;
-    padding: 0;
-}
-
-.flex li {
-    flex: auto;
-    text-align: center;
-}
-
-.box {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-}
-
-.fill-remaining {
-    flex-grow: 1;
-}
-
-.link-button {
-    width: calc(100% - 6px);
-    height: 35px;
-    line-height: 31px;  /* height - border (top and bottom) + padding (top and bottom) */
-    font-family: 'Gantari';
-    font-size: large;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    text-decoration: none;
-    border: 2px solid #FFF;
-    background-color: rgba(0, 0, 0, 0.623);
-    cursor: pointer;
-    transition: 0.4s;
-    margin: 3px;
-    padding: 0 10;
-    display: inline-block;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.link-button:hover {
-    background-color: rgb(255, 255, 255);
-    color: black;
-    transition: 0.4s;  
 }
 
 button:hover {
@@ -128,46 +45,42 @@ button:hover {
     transition: 0.4s;
 }
 
-.half {
-    float: left;
-    width: calc(50% - 6px);
+input {
+    font-family: 'Gantari';
+    font-size: 12pt;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
 }
 
 hr {
-    width: 90%;
-    height: 2px;
-    border: none;
-    /* background-color: rgb(90, 90, 90); */
+    height: 3px;
     background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255), rgba(0, 0, 0, 0));
-    margin-top: 25px;
-    margin-bottom: 25px;
+    border: 0;
+    margin: 20px;
 }
 
-.banner {
-    background: linear-gradient(rgb(155, 155, 155), rgb(65, 65, 65));
-    width: calc(100% - 6px);
-    height: calc(20% - 6px);
-    outline: 3px solid rgb(0, 0, 0);
-    outline-offset: -3px;
-    border-style: hidden;
-
-    text-align: center;
-    vertical-align: middle;
-
-    padding: 3px;
-
+.noselect {
+    -moz-user-select: none;
+    user-select: none;
 }
 
-.menu {
+.box {
     background: rgba(0, 0, 0, 0.623);
-    width: calc(100% - 6px);
-    height: fit-content;
+
+    margin: 10px;
+    border: 3px solid rgb(0, 0, 0);
     padding: 3px;
-    border-style: hidden;
-    float: left;
-    overflow: auto;
-    outline: 3px solid rgb(0, 0, 0);
-    outline-offset: -3px;
+}
+
+.column {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.sound-player {
+    margin: 15px;
+    vertical-align: middle;
 }
 
 .shake {
@@ -187,29 +100,4 @@ hr {
     80% {transform: translate(2px, -1px);}
     90% {transform: translate(0px, 0px);}
     100% {transform: translate(-1px, 2px);}
-}
-
-body {
-    /* -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; */
-    background-image: url(/background.svg);
-    background-size: 20%;
-}
-
-.noselect {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.center {
-    text-align: center;
-}
-
-.center2 {
-    display: flex;
-    justify-content: center;
 }
