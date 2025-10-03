@@ -16,9 +16,8 @@ h1, h2, h3, h4, h5, h6, p {
     color: white
 }
 
-h1 {
-    font-size: 50px;
-}
+h1 { font-size: 50px; }
+h2 { font-size: 40px; }
 
 button {
     height: 35px;
@@ -73,14 +72,16 @@ hr {
     padding: 3px;
 }
 
-.column {
-    flex-grow: 1;
-    text-align: center;
+.banner-box {
+    display: flex;
+    justify-content: center;
 }
 
-.sound-player {
-    margin: 15px;
-    vertical-align: middle;
+.column {
+    display: flex;
+    flex-grow: 1;
+    text-align: center;
+    flex-direction: column;
 }
 
 .shake {
@@ -100,4 +101,16 @@ hr {
     80% {transform: translate(2px, -1px);}
     90% {transform: translate(0px, 0px);}
     100% {transform: translate(-1px, 2px);}
+}
+
+.music {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.music audio {
+    background-color: #FFF;
+    margin: 0 10px;
+    width: 500px;
 }
