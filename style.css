@@ -77,11 +77,18 @@ hr {
     justify-content: center;
 }
 
-.column {
+.tile-container {
     display: flex;
-    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tile {
+    display: flex;
     text-align: center;
     flex-direction: column;
+    flex-grow: 1;
+    width: 320px;
 }
 
 .shake {

@@ -18,7 +18,11 @@
 
     <script>
         function openLink(link) {
-            window.location.href = link
+            window.location.href = link;
+        }
+
+        function openLinkNewTab(link) {
+            window.open(link);
         }
     </script>
 
@@ -31,20 +35,31 @@
     <h1>Welcome to my website 😎👍</h1>
 </div>
 
-<div style="display: flex; flex-wrap: wrap;">
-    <div class="box column">
+<div class="tile-container">
+    <div class="box tile">
         <h2>My Games</h2> <hr>
         <button onclick="openLink('/gradugame')">Gradugame</button>
     </div>
     
-    <div class="box column">
+    <div class="box tile">
         <h2>My Music</h2> <hr>
         <button onclick="openLink('/music#gradugame')">Gradugame</button>
         <button onclick="openLink('/music#2024')">Best of 2024</button>
     </div>
-    
-    <div class="box column">
-        <h2>My Other things</h2> <hr>
+
+    <div class="box tile">
+        <h2>My Accounts</h2> <hr>
+        <button onclick="openLink('https\:/\/scratch.mit.edu/users/clfisher/')">Scratch: @clfisher</button>
+        <p>Discord: @clfisher</p>
+    </div>
+
+    <div class="box tile">
+        <h2>My favorite links</h2> <hr>
+        <button onclick="openLinkNewTab('https\:\/\/xkcd.com/')">xkcd</button>
+    </div>
+
+    <div class="box tile">
+        <h2>My Other projects</h2> <hr>
         <h3>Coming soon... 🤯</h3>
     </div>
 
