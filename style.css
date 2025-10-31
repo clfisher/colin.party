@@ -133,7 +133,7 @@ hr {
 }
 
 .music audio {
-    background-color: #FFF;
+    background: none;
     margin: 0 10px;
     width: 500px;
 }
