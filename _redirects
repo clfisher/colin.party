@@ -3,3 +3,5 @@
 /scratchapi/*  https://api.scratch.mit.edu/:splat  200
 
 /music/2024    /music  302
+
+/t/*           /t      200

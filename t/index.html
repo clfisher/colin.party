@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Set pixel size -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Text</title>
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon16.png">
+</head>
+
+<body>
+  <div class="box" id="main">
+    <h3 id="note"></h3>
+
+    <div class="tile-container">
+      <button id="copy" onclick="copy()">Copy text</button>
+      <button id="download" onclick="download()">Download file</button>
+    </div>
+
+    <p id="content"></p>
+  </div>
+  
+  <div class="box" id="message">
+    <p>colin.party/t is a webpage for displaying, copying, and downloading text to a file. Simply type the text after /t/ to display it, like this:</p>
+    <a href="/t/hello!">colin.party/t/hello!</a>
+    <p>the "n" URL parameter can be used to display a note:</p>
+    <a href="/t/hello!?n=Text below">colin.party/t/hello!?n=Text below</a>
+    <p>and the "f" URL parameter can be used to set a file name when downloading:</p>
+    <a href="/t/hello!?n=Text below&f=filename">colin.party/t/hello!?n=Text below&f=filename</a>
+  </div>
+</body>
+
+<script>
+  const copyButton = document.getElementById('copy')
+
+  let URLSearch = new URLSearchParams(window.location.search);
+
+  let rawContent = window.location.pathname.split('/')[2]
+  let content;
+  if (rawContent === undefined || rawContent == "") {
+    document.getElementById('main').style.display = 'none'
+  }
+  else {
+    document.getElementById('message').style.display = 'none'
+    content = decodeURI(rawContent)
+  }
+
+  let note = URLSearch.get('n')
+  let downloadName = `${URLSearch.get('f') ?? 'download'}.txt`
+
+  document.getElementById('content').innerText = content;
+  if (note) document.getElementById('note').innerText = note;
+  else document.getElementById('note').remove();
+
+  function copy() {
+    navigator.clipboard.writeText(content).then(() => {
+      copyButton.innerText = "Copied!"
+      setTimeout(() => {
+        copyButton.innerText = "Copy text"
+      }, 1000);
+    })
+  }
+
+  function download() {
+    let blob = new Blob([content], {type:"text/plain"});
+    let link = document.createElement('a');
+    
+    link.href = URL.createObjectURL(blob);
+    link.download = downloadName;
+    link.click();
+  }
+</script>
+
+</html>
