@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!-- Created with https://packager.turbowarp.org/ -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- We only include this to explicitly loosen the CSP of various packager environments. It does not provide any security. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: blob:">
+  <title>Navigating the storm</title>
+  <style>
+    body {
+      color: #ffffff;
+      font-family: sans-serif;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    :root, body.is-fullscreen {
+      background-color: #000000;
+    }
+    [hidden] {
+      display: none !important;
+    }
+    h1 {
+      font-weight: normal;
+    }
+    a {
+      color: inherit;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    #app, #loading, #error, #launch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: default;
+      user-select: none;
+      -webkit-user-select: none;
+      background-color: #000000;
+    }
+    #launch {
+      background-color: rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+    }
+    .green-flag {
+      width: 80px;
+      height: 80px;
+      padding: 16px;
+      border-radius: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      border: 3px solid hsla(0, 100%, 100%, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    #loading {
+      
+    }
+    .progress-bar-outer {
+      border: 1px solid currentColor;
+      height: 10px;
+      width: 200px;
+      max-width: 200px;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      width: 0;
+      background-color: currentColor;
+    }
+    .loading-text, noscript {
+      font-weight: normal;
+      font-size: 36px;
+      margin: 0 0 16px;
+    }
+    .loading-image {
+      margin: 0 0 16px;
+    }
+    #error-message, #error-stack {
+      font-family: monospace;
+      max-width: 600px;
+      white-space: pre-wrap;
+      user-select: text;
+      -webkit-user-select: text;
+    }
+    #error-stack {
+      text-align: left;
+      max-height: 200px;
+      overflow: auto;
+    }
+    .control-button {
+      width: 2rem;
+      height: 2rem;
+      padding: 0.375rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+      border: 0;
+      border-radius: 4px;
+    }
+    .control-button-highlight:hover {
+      background: #ff4c4c26;
+    }
+    .control-button-highlight.active {
+      background: #ff4c4c59;
+    }
+    .fullscreen-button {
+      background: white;
+    }
+    .standalone-fullscreen-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 0 0 0 4px;
+      padding: 4px;
+      cursor: pointer;
+    }
+    .sc-canvas {
+      cursor: auto;
+    }
+    .sc-monitor-root[data-opcode^="data_"] .sc-monitor-value-color {
+      background-color: #ff8c1a;
+    }
+    .sc-monitor-row-value-outer {
+      background-color: #fc662c;
+    }
+    .sc-monitor-row-value-editing .sc-monitor-row-value-outer {
+      background-color: #e25b27;
+    }
+    
+  </style>
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI2My4yOTk5NyIgaGVpZ2h0PSI0OC42Nzg3MiIgdmlld0JveD0iMCwwLDYzLjI5OTk3LDQ4LjY3ODcyIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA4LjQyNTAyLC0xMDMuMTIxOTMpIj48ZyBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtpc1BhaW50aW5nTGF5ZXImcXVvdDs6dHJ1ZX0iIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlLWxpbmVqb2luPSJtaXRlciIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2UtZGFzaGFycmF5PSIiIHN0cm9rZS1kYXNob2Zmc2V0PSIwIiBzdHlsZT0ibWl4LWJsZW5kLW1vZGU6IG5vcm1hbCI+PHBhdGggZD0iTTI2Ni42MjUwMSwxMjkuMjA0NWMwLDEyLjA2NTMgLTExLjkyMDQyLDIxLjg0NjE1IC0yNi42MjUsMjEuODQ2MTVjLTE0LjcwNDU4LDAgLTI2LjYyNSwtOS43ODA4NiAtMjYuNjI1LC0yMS44NDYxNWMwLC0xMi4wNjUzIDExLjkyMDQyLC0yMS44NDYxNSAyNi42MjUsLTIxLjg0NjE1YzE0LjcwNDU4LDAgMjYuNjI1LDkuNzgwODYgMjYuNjI1LDIxLjg0NjE1eiIgZmlsbD0iI2ZmY2Y2NiIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9ImJ1dHQiLz48cGF0aCBkPSJNMjQ5LjY0Mjg3LDEyOS4yMDQ1YzAsMi4xMzAyNCAtMS4zNDMxNCwzLjg1NzE1IC0zLDMuODU3MTVjLTEuNjU2ODYsMCAtMywtMS43MjY5MSAtMywtMy44NTcxNWMwLC0yLjEzMDI0IDEuMzQzMTQsLTMuODU3MTQgMywtMy44NTcxNGMxLjY1Njg2LDAgMywxLjcyNjkgMywzLjg1NzE0eiIgZmlsbD0iIzAwMDAwMCIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjAiIHN0cm9rZS1saW5lY2FwPSJidXR0Ii8+PHBhdGggZD0iTTIxNC45NjQzOSwxMzMuNDAxMTRjLTAuNjEwNjIsMS4xOTYyMiAtMS40NzkxOSwxLjk0MzY5IC0yLjQ0MjksMS45NDM2OWMtMS44NDgyLDAgLTMuMzQ2NDYsLTIuNzQ5MTIgLTMuMzQ2NDYsLTYuMTQwMzRjMCwtMy4zOTEyMSAxLjQ5ODI2LC02LjE0MDM0IDMuMzQ2NDYsLTYuMTQwMzRjMS4wODA2OCwwIDIuMDQxNzIsMC45Mzk5MiAyLjY1MzU0LDIuMzk4NTQiIGZpbGw9IiNmZmNmNjYiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJidXR0Ii8+PHBhdGggZD0iTTI2NC45NzQ5OSwxMjUuNDYyNzFjMC42MTE4MiwtMS40NTg2MiAxLjU3Mjg2LC0yLjM5ODU0IDIuNjUzNTQsLTIuMzk4NTRjMS44NDgyLDAgMy4zNDY0NiwyLjc0OTEzIDMuMzQ2NDYsNi4xNDAzNGMwLDMuMzkxMjIgLTEuNDk4MjYsNi4xNDAzNCAtMy4zNDY0Niw2LjE0MDM0Yy0wLjk2MzcxLDAgLTEuODMyMjgsLTAuNzQ3NDcgLTIuNDQyOSwtMS45NDM2OSIgZGF0YS1wYXBlci1kYXRhPSJ7JnF1b3Q7aW5kZXgmcXVvdDs6bnVsbH0iIGZpbGw9IiNmZmNmNjYiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJidXR0Ii8+PHBhdGggZD0iTTIzNy42NDI4NywxMjkuMjA0NWMwLDIuMTMwMjQgLTEuMzQzMTQsMy44NTcxNSAtMywzLjg1NzE1Yy0xLjY1Njg2LDAgLTMsLTEuNzI2OTEgLTMsLTMuODU3MTVjMCwtMi4xMzAyNCAxLjM0MzE0LC0zLjg1NzE0IDMsLTMuODU3MTRjMS42NTY4NiwwIDMsMS43MjY5IDMsMy44NTcxNHoiIGZpbGw9IiMwMDAwMDAiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIwIiBzdHJva2UtbGluZWNhcD0iYnV0dCIvPjxwYXRoIGQ9Ik0yMTkuMDE1MTcsMTI5LjgzMjUyYy0xLjA1MzE1LDAuNjIwMzIgLTIuMjg4NjEsMC4wNzk3OSAtMi4yODg2MSwwLjA3OTc5bC0zLjI5ODU4LC0xLjQ0NTcxYy0wLjAyNDczLC0wLjAzMDI4IC0wLjA0OTQ2LC0wLjA2MDU1IC0wLjA3NDIsLTAuMDkwODNsLTAuMDIyMzEsMC4wNDA4OWwtMi4xNTU0MSwtMS4xNzU2OGMtMC44MDA2NywtMC40MTY3IC0xLjM0NzQ1LC0xLjI1NDAyIC0xLjM0NzQ1LC0yLjIxOTA1YzAsLTEuMzgwNzEgMS4xMTkyOSwtMi41IDIuNSwtMi41YzAuMTQ0NzQsMCAwLjI4NjYsMC4wMTIzIDAuNDI0NjEsMC4wMzU5MWwwLjE3NTIsMC4wMjY5NmMtMC4wNzc4OSwtMi41NDQ5MiAyLjgzMTY2LC01LjI1ODYzIDQuMDcwNjksLTYuNzEwNjhjMC44MzUyMSwtMi42NDMxNCAzLjQxODQxLC01LjQ1OTUxIDQuNTM1MzksLTYuNTkzMjJjMi4wNTIyNywtMi4wODI5NyA0LjUyMTUyLC0zLjAxNzg2IDcuMTUyMDksLTMuNTUwMjljMS44NzAwOSwtMC45MTY5OCAzLjkxODQ5LC0xLjY0MjcxIDYuMjIyMiwtMi4xNzMxOGMxLjI5Mzg2LC0wLjE0Mzg5IDIuNTg3NzIsLTAuMjg3NzggMy44ODE1NywtMC40MzE2N2wwLjEzODI1LDAuMDQ5OXYtMC4wNTM3M2gzLjJjMS4xMjU4MywwIDIuMDc3ODUsMC43NDQxOSAyLjM5MDk3LDEuNzY3NDljMS40MTUzOCwtMC4zMjgyIDMuMTUwNTYsMC41ODkzNyA0LjYyODI1LDAuOTcwNTVjMy44MDk4MSwwLjk4Mjc3IDcuOTkxNDUsNC41MDcyOCAxMC44MDAyMyw3LjA1NTQ4YzEuMjk4NzEsMS4xNzgyMiA2LjU4MDU2LDYuNzUzNjIgNy4yNTAyOCw4LjI1ODQ5YzIuNDkyMDgsNS41OTk3NiAtMS40MDU0NiwxMC4zMDQ5OSAtNy4yNTkzLDguNjIwMDRjLTAuMTIzMTMsLTAuMDM1NDQgLTAuMjQ3MTQsLTAuMDc1NDYgLTAuMzcxOTQsLTAuMTE5NzNjLTAuODIzOCwtMC4wMTQxNCAtMS41OTIwOCwtMC4wNjk5IC0yLjE4MzkzLC0wLjA2NjAzYy0xLjg2MDY4LC0xLjIxMjMxIC0zLjcxODY1LC0yLjQ0MzYyIC01LjQzNjgsLTMuODUwNjdjLTAuNTMyOSwtMC40MzY0MSAtMS43MzgxMywtMS40MzgzOSAtMi45NjU1LC0yLjQ4Mjk5Yy0zLjAwODc1LC0wLjY3Mjk5IC02LjQzNDcyLC0wLjQ4NDg1IC04LjgwMDIyLC0yLjE2Mzk2Yy0xLjExMTQ4LC0wLjAxNzA0IC0yLjIzMjYxLC0wLjA0OTIgLTMuMzU1NDksLTAuMDY3NTdjLTAuNzA2MTUsMS4yNDQ2NSAtMS41NTQxNCwyLjQ2OTU4IC0yLjIxNTg1LDMuMjI1OTljLTMuNDQyNTQsMy45MzUyMSAtOC44Njg1Niw1LjU1MjMzIC0xMy45ODQ3OCw1LjQ1MTA4Yy0wLjUwODE1LC0wLjAxMDA1IC0xLjA2MjU4LDAuMDY0OTkgLTEuNjA5MzgsMC4xMTI0NHoiIGZpbGw9IiMzZDI1MGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1saW5lY2FwPSJidXR0Ii8+PHBhdGggZD0iTTIzOS4yMjUwMywxNDYuNDIxOWMtNS45MTY1NywwIC05LC0xMCAtOSwtMTBoMjAuNGMwLDAgLTUuNDgzNDMsMTAgLTExLjQsMTB6IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMjM1Ljg3NTAzLDEzNi44NTAyNnY4LjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0yNDEuMzc1MDMsMTQ2LjA1MDI2di05IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMjQ2LjQ3NTAzLDE0MS43NTAyNnYtNC44IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L2c+PC9nPjwvc3ZnPg==">
+</head>
+<body>
+  <div id="app"></div>
+
+  <div id="launch" class="screen" hidden title="Click to start">
+    <div class="green-flag">
+      <svg viewBox="0 0 16.63 17.5" width="42" height="44">
+        <defs><style>.cls-1,.cls-2{fill:#4cbf56;stroke:#45993d;stroke-linecap:round;stroke-linejoin:round;}.cls-2{stroke-width:1.5px;}</style></defs>
+        <path class="cls-1" d="M.75,2A6.44,6.44,0,0,1,8.44,2h0a6.44,6.44,0,0,0,7.69,0V12.4a6.44,6.44,0,0,1-7.69,0h0a6.44,6.44,0,0,0-7.69,0"/>
+        <line class="cls-2" x1="0.75" y1="16.75" x2="0.75" y2="0.75"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="loading" class="screen">
+    <noscript>Enable JavaScript</noscript>
+    <h1 class="loading-text">Navigating the storm</h1>
+    
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="loading-inner"></div></div>
+  </div>
+
+  <div id="error" class="screen" hidden>
+    <h1>Error</h1>
+    <details>
+      <summary id="error-message"></summary>
+      <p id="error-stack"></p>
+    </details>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const appElement = document.getElementById('app');
+    const launchScreen = document.getElementById('launch');
+    const loadingScreen = document.getElementById('loading');
+    const loadingInner = document.getElementById('loading-inner');
+    const errorScreen = document.getElementById('error');
+    const errorScreenMessage = document.getElementById('error-message');
+    const errorScreenStack = document.getElementById('error-stack');
+
+    const handleError = (error) => {
+      console.error(error);
+      if (!errorScreen.hidden) return;
+      errorScreen.hidden = false;
+      errorScreenMessage.textContent = '' + error;
+      let debug = error && error.stack || 'no stack';
+      debug += '\nUser agent: ' + navigator.userAgent;
+      errorScreenStack.textContent = debug;
+    };
+    const setProgress = (progress) => {
+      if (loadingInner) loadingInner.style.width = progress * 100 + '%';
+    };
+    const interpolate = (a, b, t) => a + t * (b - a);
+
+    try {
+      setProgress(0.1);
+
+      const scaffolding = new Scaffolding.Scaffolding();
+      scaffolding.width = 480;
+      scaffolding.height = 360;
+      scaffolding.resizeMode = "preserve-ratio";
+      scaffolding.editableLists = false;
+      scaffolding.usePackagedRuntime = true;
+      scaffolding.setup();
+      scaffolding.appendTo(appElement);
+
+      const vm = scaffolding.vm;
+      window.scaffolding = scaffolding;
+      window.vm = scaffolding.vm;
+      window.Scratch = {
+        vm,
+        renderer: vm.renderer,
+        audioEngine: vm.runtime.audioEngine,
+        bitmapAdapter: vm.runtime.v2BitmapAdapter,
+        videoProvider: vm.runtime.ioDevices.video.provider
+      };
+
+      scaffolding.setUsername("player####".replace(/#/g, () => Math.floor(Math.random() * 10)));
+      scaffolding.setAccentColor("#ff4c4c");
+
+      try {
+        scaffolding.addCloudProvider(new Scaffolding.Cloud.WebSocketProvider(["wss://clouddata.turbowarp.org","wss://clouddata.turbowarp.xyz"], "p4-@Project.sb3"));
+      } catch (error) {
+        console.error(error);
+      }
+
+      vm.setTurboMode(false);
+      if (vm.setInterpolation) vm.setInterpolation(false);
+      if (vm.setFramerate) vm.setFramerate(60);
+      if (vm.renderer.setUseHighQualityRender) vm.renderer.setUseHighQualityRender(false);
+      if (vm.setRuntimeOptions) vm.setRuntimeOptions({
+        fencing: true,
+        miscLimits: true,
+        maxClones: 9999999999,
+      });
+      if (vm.setCompilerOptions) vm.setCompilerOptions({
+        enabled: true,
+        warpTimer: false
+      });
+      if (vm.renderer.setMaxTextureDimension) vm.renderer.setMaxTextureDimension(2048);
+
+      // enforcePrivacy threat model only makes sense in the editor
+      if (vm.runtime.setEnforcePrivacy) vm.runtime.setEnforcePrivacy(false);
+
+      if (typeof ScaffoldingAddons !== 'undefined') {
+        ScaffoldingAddons.run(scaffolding, {"gamepad":false,"pointerlock":false,"specialCloudBehaviors":false,"unsafeCloudBehaviors":false,"pause":false});
+      }
+
+      scaffolding.setExtensionSecurityManager({
+        getSandboxMode: () => 'unsandboxed',
+        canLoadExtensionFromProject: () => true
+      });
+      for (const extension of []) {
+        vm.extensionManager.loadExtensionURL(extension);
+      }
+
+    } catch (e) {
+      handleError(e);
+    }
+  </script>
+  
+  
+    <script>
+      const getProjectData = (function() {
+        const storage = scaffolding.storage;
+        storage.onprogress = (total, loaded) => {
+          setProgress(interpolate(0.2, 0.98, loaded / total));
+        };
+        
+        storage.addWebStore(
+          [
+            storage.AssetType.ImageVector,
+            storage.AssetType.ImageBitmap,
+            storage.AssetType.Sound,
+            storage.AssetType.Font
+          ].filter(i => i),
+          (asset) => new URL('./assets/' + asset.assetId + '.' + asset.dataFormat, location).href
+        );
+        return () => new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+          resolve(xhr.response);
+        };
+        xhr.onerror = () => {
+          if (location.protocol === 'file:') {
+            reject(new Error('Zip environment must be used on a website, not on a local file. To fix this error, use the "Plain HTML" environment instead.'));
+          } else {
+            reject(new Error('Request to load project data failed.'));
+          }
+        };
+        xhr.onprogress = (e) => {
+          if (e.lengthComputable) {
+            setProgress(interpolate(0.1, 0.2, e.loaded / e.total));
+          }
+        };
+        xhr.responseType = 'arraybuffer';
+        xhr.open('GET', "./assets/project.json");
+        xhr.send();
+      });
+      })();
+    </script>
+  <script>
+    const run = async () => {
+      const projectData = await getProjectData();
+      await scaffolding.loadProject(projectData);
+      setProgress(1);
+      loadingScreen.hidden = true;
+      if (true) {
+        scaffolding.start();
+      } else {
+        launchScreen.hidden = false;
+        launchScreen.addEventListener('click', () => {
+          launchScreen.hidden = true;
+          scaffolding.start();
+        });
+        launchScreen.focus();
+      }
+    };
+    run().catch(handleError);
+  </script>
+</body>
+</html>
